@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"path": "zio"
+		},
+		{
+			"path": "python/online-tutorials/arjancodes"
+		},
+		{
+			"path": "python/online-tutorials/realpython/packaging-your-python-code-with-project.toml"
+		},
+		{
+			"path": "python/my-projects/atrox3d-project"
+		},
+		{
+			"path": "python/online-tutorials/james-powell"
+		},
+		{
+			"path": "python/online-tutorials/bobby-hadz"
+		},
+		{
+			"path": "python/pycharm/scratches"
+		},
+		{
+			"path": "python/online-tutorials/atrox3d-package"
+		},
+		{
+			"path": "python/playground"
+		},
+		{
+			"path": "../bin-projects"
+		},
+		{
+			"path": "../bin"
+		}
+	]
+}
