@@ -1,37 +1,56 @@
 {
 	"folders": [
 		{
-			"path": "../zio"
+			"name": "bin",
+			"path": "../../bin"
 		},
 		{
-			"path": "../python/online-tutorials/arjancodes"
-		},
-		{
-			"path": "../python/online-tutorials/realpython/packaging-your-python-code-with-project.toml"
-		},
-		{
-			"path": "../python/my-projects/atrox3d-project"
-		},
-		{
-			"path": "../python/online-tutorials/james-powell"
-		},
-		{
-			"path": "../python/online-tutorials/bobby-hadz"
-		},
-		{
-			"path": "../python/pycharm/scratches"
-		},
-		{
-			"path": "../python/online-tutorials/atrox3d-package"
-		},
-		{
-			"path": "../python/playground"
-		},
-		{
+			"name": "bin-projects",
 			"path": "../../bin-projects"
 		},
 		{
-			"path": "../../bin"
+			"name": "zio",
+			"path": "../zio"
+		},
+		{
+			"name": "arjancodes",
+			"path": "../python/online-tutorials/arjancodes"
+		},
+		{
+			"name": "packaging-your-python-code-with-project.toml",
+			"path": "../python/online-tutorials/realpython/packaging-your-python-code-with-project.toml"
+		},
+		{
+			"name": "atrox3d-package",
+			"path": "../python/online-tutorials/atrox3d-package"
+		},
+		{
+			"name": "atrox3d-project",
+			"path": "../python/my-projects/atrox3d-project"
+		},
+		{
+			"name": "james-powell",
+			"path": "../python/online-tutorials/james-powell"
+		},
+		{
+			"name": "bobby-hadz",
+			"path": "../python/online-tutorials/bobby-hadz"
+		},
+		{
+			"name": "scratches",
+			"path": "../python/pycharm/scratches"
+		},
+		{
+			"name": "playground",
+			"path": "../python/playground"
+		},
+		{
+			"name": "aoc",
+			"path": "../python/aoc"
+		},
+		{
+			"name": "codewars",
+			"path": "../python/codewars"
 		}
 	]
 }
