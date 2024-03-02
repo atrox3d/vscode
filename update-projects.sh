@@ -7,17 +7,8 @@ grep -q $ACTION <<< "push pull" || die
 
 function update()
 {
-    if [ $# -lt 2 ]
-    then
-        RECURSE=0
-    else
-        ((RECURSE++))
-        [ $RECURSE -lt 3 ] || {
-            echo "MAX RECURSION REACHED $RECURSE"
-            echo "RETURN"
-            return
-        }
-    fi
+    [ $# -lt 2 ] && RECURSE=0 || ((RECURSE++))
+    [ $RECURSE -lt 3 ] || { echo "MAX RECURSION REACHED $RECURSE";echo "RETURN";return; }
 
     cd "$1"
     echo "cwd=$PWD"
