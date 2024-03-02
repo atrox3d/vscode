@@ -1,3 +1,10 @@
+function syntax(){ echo "syntax: $0 push|pull"; }
+function die(){ echo "FATAL";syntax;exit 1; }
+
+[ $# -ge 1 ] || die
+ACTION=${1,,}
+grep -q $ACTION <<< "push pull" || die
+
 function update()
 {
     if [ $# -lt 2 ]
@@ -21,7 +28,6 @@ function update()
         git pull
     else
         shopt -s nullglob
-
         for d in */
         do
             echo "GIT:KO UPDATE $d RECURSE"
