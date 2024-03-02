@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function syntax(){ echo "syntax: $0 push|pull"; }
 function die(){ echo "FATAL";syntax;exit 1; }
