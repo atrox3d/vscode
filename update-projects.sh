@@ -13,21 +13,22 @@ function update()
     [ $RECURSE -lt 3 ] || { echo "MAX RECURSION REACHED $RECURSE";echo "RETURN";return; }
 
     cd "$1"
-    echo "cwd=$PWD"
+    echo "[CURRENT DIR] $PWD"
     action=$2
 
     if [ -d .git ]
     then
-        echo "GIT:OK ${action^^}   $1"
+        echo "[GIT:OK][${action^^}] $1"
         git $action
     else
         shopt -s nullglob
         for d in */
         do
-            echo "GIT:KO UPDATE $d RECURSE"
+            echo "[GIT:KO][UPDATE RECURSE $RECURSE] $d"
             (update $d $action RECURSE)
         done
     fi
+    echo
 }
 export -f update
 
