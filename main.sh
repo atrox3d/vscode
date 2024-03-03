@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# echo $0 $BASH_SOURCE $PWD
+# exit
+
 function syntax(){ echo "syntax: $0 push|pull"; }
 function die(){ echo "FATAL";syntax;exit 1; }
 
