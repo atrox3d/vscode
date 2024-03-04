@@ -2,7 +2,7 @@
 
 # echo $0 $BASH_SOURCE $PWD
 # exit
-
+IGNORE_PATHS='__pycache__ venv .idea'
 function syntax(){ echo "syntax: $0 push|pull"; }
 function die(){ echo "FATAL";syntax;exit 1; }
 
@@ -17,6 +17,8 @@ function update()
 
     cd "$1"
     echo "[CURRENT DIR] $PWD"
+    grep -q "$(basename $PWD)" <<< "${IGNORE_PATH}" && { echo "[IGNORING] $(basename $PWD)";return; }
+    
     action=$2
 
     if [ -d .git ]
