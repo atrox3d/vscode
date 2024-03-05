@@ -37,8 +37,13 @@ function update()
     if [ -d .git ]
     then
         echo "[GIT:OK][RECURSE ($RECURSE)][${action^^}] $1"
-        git $action
-        [ $? -eq 0 ] || { echo "git errorlevel $? - return 255";return 255; }
+        git_out=$(git $action 2>&1)
+        echo "${git_out}"
+        [ $? -eq 0 ] || {
+            echo "$$1" >> error.log
+            echo "${git_out}" >> error.log
+            echo "git errorlevel $? - return 255";return 255; 
+        }
     else
         shopt -s nullglob
         for d in */
@@ -55,14 +60,15 @@ function update()
 
 # jq -c '.folders[]|.path' code-workspace.code-workspace | xargs -L1 -I% bash -c "update % ${ACTION} || { echo '[BASH] exit 255';exit 255; }"
 # jq -c '.folders[]|.path' code-workspace.code-workspace | xargs -L1 -I% bash -c "update % ${ACTION};echo '[UPDATE] errorlevel $?'"
+> error.log
 jq -cr '.folders[]|.path' code-workspace.code-workspace | tr -d '\r' | while read d
 do
     echo $d
     (update $d $ACTION)
     exitcode=$?
     # echo exitcode=$exitcode
-    if $STOP
-    then
-        [ $exitcode -eq 0 ] || read -p 'enter to continue, ctrl-c to stop' </dev/tty
-    fi
+    # if $STOP
+    # then
+        # [ $exitcode -eq 0 ] || read -p 'enter to continue, ctrl-c to stop' </dev/tty
+    # fi
 done
