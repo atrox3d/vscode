@@ -2,13 +2,17 @@
 
 # echo $0 $BASH_SOURCE $PWD
 # exit
-exec &> >(tee "update.log")
-
-
 function syntax(){ echo "syntax: $0 push|pull"; }
-# export -f syntax
+export -f syntax
+
 function die(){ echo "FATAL ${@}";syntax;echo "[DIE] exit 255";exit 255; }
-# export -f die
+export -f die
+
+export HERE="$(cd $(dirname $0);pwd)"
+export LOGFILE="${HERE}/update.log"
+export ERRORLOG="${HERE}/error.log"
+exec &> >(tee "${LOGFILE}")
+
 
 [ $# -ge 1 ] || die
 ACTION=${1,,}
@@ -16,7 +20,7 @@ grep -q $ACTION <<< "push pull" || die
 
 [ "${2^^}" == "STOP" ] && STOP=true || STOP=false
 
-IGNORE_PATHS='__pycache__ venv .idea'
+export IGNORE_PATHS='__pycache__ venv .idea'
 function update()
 {
     [ $# -lt 3 ] && RECURSE=0 || ((RECURSE++))
@@ -39,12 +43,14 @@ function update()
         echo "[GIT:OK][RECURSE ($RECURSE)][${action^^}] $1"
         git_out=$(git $action 2>&1)
         [ $? -eq 0 ] || {
-            echo "updating error.log"
-            echo "$1" >> error.log
-            echo "${git_out}" >> error.log
+            echo "updating ${ERRORLOG}"
+            echo "$1" >> "${ERRORLOG}"
+            echo "GIT_OUT: ${git_out}" >> "${ERRORLOG}"
             echo "git errorlevel $? - return 255";return 255; 
         }
-        echo "${git_out}"
+        echo "GIT_OUT: ${git_out}"
+        echo "updating ${ERRORLOG}"
+        echo "no errors" >> "${ERRORLOG}"
     else
         shopt -s nullglob
         for d in */
@@ -57,11 +63,12 @@ function update()
     fi
     echo
 }
-# export -f update
+export -f update
 
 # jq -c '.folders[]|.path' code-workspace.code-workspace | xargs -L1 -I% bash -c "update % ${ACTION} || { echo '[BASH] exit 255';exit 255; }"
 # jq -c '.folders[]|.path' code-workspace.code-workspace | xargs -L1 -I% bash -c "update % ${ACTION};echo '[UPDATE] errorlevel $?'"
-echo '' > error.log
+> "${ERRORLOG}"
+
 jq -cr '.folders[]|.path' code-workspace.code-workspace | tr -d '\r' | while read d
 do
     echo $d
