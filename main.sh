@@ -14,6 +14,8 @@ function die(){ echo "FATAL ${@}";syntax;echo "[DIE] exit 255";exit 255; }
 ACTION=${1,,}
 grep -q $ACTION <<< "push pull" || die
 
+[ "${2^^}" == "STOP" ] && STOP=true || STOP=false
+
 IGNORE_PATHS='__pycache__ venv .idea'
 function update()
 {
@@ -59,5 +61,8 @@ do
     (update $d $ACTION)
     exitcode=$?
     # echo exitcode=$exitcode
-    [ $exitcode -eq 0 ] || read -p 'enter to continue, ctrl-c to stop' </dev/tty
+    if $STOP
+    then
+        [ $exitcode -eq 0 ] || read -p 'enter to continue, ctrl-c to stop' </dev/tty
+    fi
 done
