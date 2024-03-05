@@ -38,12 +38,13 @@ function update()
     then
         echo "[GIT:OK][RECURSE ($RECURSE)][${action^^}] $1"
         git_out=$(git $action 2>&1)
-        echo "${git_out}"
         [ $? -eq 0 ] || {
-            echo "$$1" >> error.log
+            echo "updating error.log"
+            echo "$1" >> error.log
             echo "${git_out}" >> error.log
             echo "git errorlevel $? - return 255";return 255; 
         }
+        echo "${git_out}"
     else
         shopt -s nullglob
         for d in */
@@ -60,7 +61,7 @@ function update()
 
 # jq -c '.folders[]|.path' code-workspace.code-workspace | xargs -L1 -I% bash -c "update % ${ACTION} || { echo '[BASH] exit 255';exit 255; }"
 # jq -c '.folders[]|.path' code-workspace.code-workspace | xargs -L1 -I% bash -c "update % ${ACTION};echo '[UPDATE] errorlevel $?'"
-> error.log
+echo '' > error.log
 jq -cr '.folders[]|.path' code-workspace.code-workspace | tr -d '\r' | while read d
 do
     echo $d
