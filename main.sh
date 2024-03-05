@@ -36,21 +36,21 @@ function update()
     # echo "[CHECK] "$1" in ${IGNORE_PATHS}"
     grep -q "$1" <<< "${IGNORE_PATHS}" && { echo "[IGNORING] $(basename $PWD)";return; }
     
-    action=$2
+    action="${2}"
 
     if [ -d .git ]
     then
         echo "[GIT:OK][RECURSE ($RECURSE)][${action^^}] $1"
         git_out=$(git $action 2>&1)
-        [ $? -eq 0 ] || {
+        exitcode=$?
+        [ ${exitcode} -eq 0 ] || {
+            echo "git errorlevel $?" 
             echo "updating ${ERRORLOG}"
             echo "$1" >> "${ERRORLOG}"
             echo "GIT_OUT: ${git_out}" >> "${ERRORLOG}"
-            echo "git errorlevel $? - return 255";return 255; 
+            echo "git exitcode ${exitcode} - return ${exitcode}";return ${exitcode}; 
         }
         echo "GIT_OUT: ${git_out}"
-        echo "updating ${ERRORLOG}"
-        echo "no errors" >> "${ERRORLOG}"
     else
         shopt -s nullglob
         for d in */
@@ -73,7 +73,7 @@ jq -cr '.folders[]|.path' code-workspace.code-workspace | tr -d '\r' | while rea
 do
     echo $d
     (update $d $ACTION)
-    exitcode=$?
+    # exitcode=$?
     # echo exitcode=$exitcode
     # if $STOP
     # then
