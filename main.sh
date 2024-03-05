@@ -2,6 +2,8 @@
 
 # echo $0 $BASH_SOURCE $PWD
 # exit
+exec &> >(tee "update.log")
+
 
 function syntax(){ echo "syntax: $0 push|pull"; }
 function die(){ echo "FATAL";syntax;exit 1; }
