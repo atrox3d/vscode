@@ -2,7 +2,7 @@
 
 # echo $0 $BASH_SOURCE $PWD
 # exit
-IGNORE_PATHS='__pycache__/ venv .idea'
+
 function syntax(){ echo "syntax: $0 push|pull"; }
 function die(){ echo "FATAL";syntax;exit 1; }
 
@@ -10,14 +10,21 @@ function die(){ echo "FATAL";syntax;exit 1; }
 ACTION=${1,,}
 grep -q $ACTION <<< "push pull" || die
 
+export IGNORE_PATHS='__pycache__/ venv .idea'
 function update()
 {
     [ $# -lt 3 ] && RECURSE=0 || ((RECURSE++))
     [ $RECURSE -lt 3 ] || { echo "MAX RECURSION REACHED $RECURSE";echo "RETURN";return; }
 
     cd "$1"
-    echo "[CURRENT DIR] $PWD"
-    grep -q "$(basename $PWD)" <<< "${IGNORE_PATH}" && { echo "[IGNORING] $(basename $PWD)";return; }
+    echo "+-------------------------------------------------------------------------------"
+    echo "[CURRENT DIR]" 
+    echo "$PWD"
+    echo "+-------------------------------------------------------------------------------"
+    # echo "[CHECK] "$(basename $PWD)" in ${IGNORE_PATHS}"
+    grep -q "$(basename $PWD)" <<< "${IGNORE_PATHS}" && { echo "[IGNORING] $(basename $PWD)";return; }
+    # echo "[CHECK] "$1" in ${IGNORE_PATHS}"
+    grep -q "$1" <<< "${IGNORE_PATHS}" && { echo "[IGNORING] $(basename $PWD)";return; }
     
     action=$2
 
@@ -29,7 +36,8 @@ function update()
         shopt -s nullglob
         for d in */
         do
-            echo "[GIT:KO][UPDATE RECURSE $RECURSE] $d"
+            echo "[GIT:KO][UPDATE RECURSE ($RECURSE)]"
+            echo "[PATH] $d"
             (update $d $action RECURSE)
         done
     fi

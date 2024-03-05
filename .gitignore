@@ -4,7 +4,10 @@
 /secret/
 /files/
 todos.txt
-/build/
-/dist/
-/gui.spec
-/bonus/camera-photos/
+build/
+dist/
+gui.spec
+__pycache__/
+*.log
+
+
