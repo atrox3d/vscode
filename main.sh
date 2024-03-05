@@ -51,4 +51,9 @@ function update()
 export -f update
 
 # jq -c '.folders[]|.path' code-workspace.code-workspace | xargs -L1 -I% bash -c "update % ${ACTION} || { echo '[BASH] exit 255';exit 255; }"
-jq -c '.folders[]|.path' code-workspace.code-workspace | xargs -L1 -I% bash -c "update % ${ACTION};echo '[UPDATE] errorlevel $?'"
+# jq -c '.folders[]|.path' code-workspace.code-workspace | xargs -L1 -I% bash -c "update % ${ACTION};echo '[UPDATE] errorlevel $?'"
+jq -cr '.folders[]|.path' code-workspace.code-workspace | tr -d '\r' | while read d
+do
+    echo $d
+    (update $d $ACTION)
+done
