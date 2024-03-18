@@ -5,20 +5,34 @@ import os
 
 def is_repo(path:str) -> bool:
     gitdir =  (Path(path).resolve() / '.git')
-    return gitdir.is_dir()
+    if gitdir.exists():
+        return gitdir.is_dir()
+    raise FileNotFoundError(f'is_repo: {gitdir} does not exist')
+
+class GitCommandException(subprocess.CalledProcessError):
+    pass
+
 
 def get_remote(path:str) -> str:
     os.chdir(Path(path).resolve())
-    # print(os.getcwd())
     command = 'git remote -v'.split()
-    result = subprocess.run(command, shell=True, capture_output=True, text=True)
-    print(result.stdout.split('\n'))
-    if result.returncode == 0:
-        print(result.stdout.split('\n')[0].split())
-        name, url, mode = result.stdout.split('\n')[0].split()
-        print(url)
+    try:
+        result = subprocess.run(command, check=True, shell=False, capture_output=True, text=True)
+        if result.stdout:
+            name, url, mode = result.stdout.split('\n')[0].split()
+            return url
+        else:
+            return None
+    except subprocess.CalledProcessError as cpe:
+        raise GitCommandException(**vars(cpe))
+
 
 if __name__ == '__main__':
-    path = '../zio/cryptedit/'
-    print(is_repo(path))
-    get_remote(path)
+    import sys
+    path = Path(sys.argv[1]).resolve()
+    
+    if is_repo(path):
+        try:
+            print(get_remote(path))
+        except GitCommandException as gce:
+            print(gce.stderr)
