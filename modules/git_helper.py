@@ -7,12 +7,17 @@ class GitCommandException(subprocess.CalledProcessError):
     pass
 
 def is_repo(path:str) -> bool:
-    gitdir =  (Path(path).resolve() / '.git')
+    path = Path(path).resolve()
+    if not path.exists():
+        raise FileNotFoundError(f'is_repo: {path} does not exist')
+
+    gitdir =  path / '.git'
     if gitdir.exists():
         return gitdir.is_dir()
-    raise FileNotFoundError(f'is_repo: {gitdir} does not exist')
+    return False
 
 def get_remote(path:str) -> str:
+    cwd = os.getcwd()
     os.chdir(Path(path).resolve())
     command = 'git remote -v'.split()
     try:
@@ -24,7 +29,8 @@ def get_remote(path:str) -> str:
             return None
     except subprocess.CalledProcessError as cpe:
         raise GitCommandException(**vars(cpe))
-
+    finally:
+        os.chdir(cwd)
 
 if __name__ == '__main__':
     import sys
