@@ -56,7 +56,16 @@
 			"path": "../python/online-tutorials/recursion"
 		},
 		{
+			"name": "python_udemy",
 			"path": "../python/udemy"
+		},
+		{
+			"name": "reaper-update",
+			"path": "../../reaper-media/reaper-update"
+		},
+		{
+			"name": "vscode-workspace",
+			"path": "."
 		}
 	],
 	"settings": {
