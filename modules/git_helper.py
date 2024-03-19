@@ -7,8 +7,8 @@ class GitCommandException(subprocess.CalledProcessError):
     pass
 
 def is_repo(path:str) -> bool:
-    path = Path(path).resolve()
-    if path.exists():
+    # path = Path(path).resolve()
+    if (path := Path(path).resolve()).exists():
         gitdir =  path / '.git'
         if gitdir.exists():
             return gitdir.is_dir()
