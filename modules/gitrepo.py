@@ -3,8 +3,6 @@ from dataclasses import dataclass
 import subprocess
 import os
 
-# from . import git_helper as git
-
 class GitCommandException(subprocess.CalledProcessError):
     pass
 

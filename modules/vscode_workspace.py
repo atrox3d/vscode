@@ -1,8 +1,7 @@
 import json
 from pathlib import Path
 
-# from . import git_helper as git
-from .gitrepo import GitRepo
+from .gitrepo import GitRepo, GitCommandException
 
 class Workspace:
     def __init__(self, path:str) -> None:

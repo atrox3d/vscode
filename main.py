@@ -1,5 +1,5 @@
 from modules.vscode_workspace import Workspace
-# from modules import git_helper as git
+from modules.gitrepo import GitRepo, GitCommandException
 
 if __name__ == '__main__':
     import os
