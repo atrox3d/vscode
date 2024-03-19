@@ -19,19 +19,25 @@ class Workspace:
         # return [folder.get('name', None) for folder in self.data['folders']]
         return [item[0] for item in self.get_tuples(default_name)]
 
-    def get_folders(self, resolve=True) -> list[str]:
+    def get_folders(self, absolute=True) -> list[str]:
         # folders = [folder['path'] for folder in self.data['folders']]
         folders = [item[1] for item in self.get_tuples()]
-        if resolve:
+        if absolute:
             return [str(Path(folder).resolve()) for folder in folders]
         return folders
     
-    def get_repos(self, resolve=True, default_name=None, recurse=True):
-        for name, path in self.get_tuples():
-            if git.is_repo(path):
-                print(name, git.get_remote(path))
+    def get_repos(self, absolute=False, default_name=None, recurse=True):
+        for name, path in self.get_tuples(default_name):
+            path = Path(path)
+            if absolute:
+                path = path.resolve()
+            if recurse:
+                for gitrepo in path.glob('**/.git/'):
+                    yield name, gitrepo.parent
+            elif git.is_repo(path):
+                yield name, path
             else:
-                print(name, 'not a git repo')                
+                yield name, 'not a repo'                
 
 
 if __name__ == '__main__':

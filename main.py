@@ -4,4 +4,5 @@ from modules import git_helper as git
 if __name__ == '__main__':
     import os
     ws = Workspace('code-workspace.code-workspace')
-    ws.get_repos()
+    for name, repo in ws.get_repos(recurse=True, absolute=False):
+        print(name, repo, git.get_remote(repo))
