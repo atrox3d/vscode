@@ -23,6 +23,7 @@ class Workspace:
         if resolve:
             return [str(Path(folder).resolve()) for folder in folders]
         return folders
+        
     
 
 
