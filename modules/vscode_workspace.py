@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from . import git_helper as git
+# from . import git_helper as git
 from .gitrepo import GitRepo
 
 class Workspace:
@@ -32,10 +32,10 @@ class Workspace:
             if recurse:
                 for gitrepo in path.glob('**/.git/'):
                     yield GitRepo(name, gitrepo.parent, None)
-            elif git.is_repo(path):
+            elif GitRepo.is_repo(path):
                 yield GitRepo(name, path, None)
-            else:
-                yield GitRepo(name, None, None)
+            # else:
+                # yield GitRepo(name, None, None)
 
 
 if __name__ == '__main__':
