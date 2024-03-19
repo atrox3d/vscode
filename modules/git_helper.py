@@ -8,13 +8,13 @@ class GitCommandException(subprocess.CalledProcessError):
 
 def is_repo(path:str) -> bool:
     path = Path(path).resolve()
-    if not path.exists():
-        raise FileNotFoundError(f'is_repo: {path} does not exist')
-
-    gitdir =  path / '.git'
-    if gitdir.exists():
-        return gitdir.is_dir()
-    return False
+    if path.exists():
+        gitdir =  path / '.git'
+        if gitdir.exists():
+            return gitdir.is_dir()
+        return False
+    
+    raise FileNotFoundError(f'is_repo: {path} does not exist')
 
 def get_remote(path:str) -> str:
     cwd = os.getcwd()
@@ -41,3 +41,5 @@ if __name__ == '__main__':
             print(get_remote(path))
         except GitCommandException as gce:
             print(gce.stderr)
+    else:
+        print(f'not a git repo: {path}')
