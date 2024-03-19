@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+from . import git_helper as git
+
 class Workspace:
     def __init__(self, path:str) -> None:
         self.path = Path(path).resolve()
@@ -23,8 +25,13 @@ class Workspace:
         if resolve:
             return [str(Path(folder).resolve()) for folder in folders]
         return folders
-        
     
+    def get_repos(self, resolve=True, default_name=None, recurse=True):
+        for name, path in self.get_tuples():
+            if git.is_repo(path):
+                print(name, git.get_remote(path))
+            else:
+                print(name, 'not a git repo')                
 
 
 if __name__ == '__main__':
