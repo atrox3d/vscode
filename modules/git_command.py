@@ -18,8 +18,10 @@ def run(command: str) -> subprocess.CompletedProcess:
     except subprocess.CalledProcessError as cpe:
         raise GitCommandException(**vars(cpe))
 
-
-res = run('git status -u --porcelain')
-print(res)
-for line in res.stdout.split('\n'):
-    print(line)
+def pushd(fn):
+    def wrapper(*args, **kwargs):
+        cwd = os.getcwd()
+        result = fn(*args, **kwargs)
+        os.chdir(cwd)
+        return result
+    return wrapper

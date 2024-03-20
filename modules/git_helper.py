@@ -3,6 +3,7 @@ import subprocess
 import os
 
 from .gitrepo import GitRepo
+from . import git_command
 
 class GitCommandException(subprocess.CalledProcessError):
     pass
@@ -25,8 +26,9 @@ def is_repo(path:str) -> bool:
         return gitdir.is_dir()
     raise FileNotFoundError(f'is_repo: {repodir} does not exist')
 
+@git_command.pushd
 def get_remote(path:str) -> str:
-    cwd = os.getcwd()
+    # cwd = os.getcwd()
     os.chdir(Path(path).resolve())
     command = 'git remote -v'.split()
     try:
@@ -38,8 +40,8 @@ def get_remote(path:str) -> str:
             return None
     except subprocess.CalledProcessError as cpe:
         raise GitCommandException(**vars(cpe))
-    finally:
-        os.chdir(cwd)
+    # finally:
+        # os.chdir(cwd)
 
 if __name__ == '__main__':
     import sys
