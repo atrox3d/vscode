@@ -5,9 +5,6 @@ import os
 from .gitrepo import GitRepo
 from . import git_command
 
-class GitCommandException(subprocess.CalledProcessError):
-    pass
-
 class NotAGitRepo(Exception):
     pass
 
@@ -18,7 +15,6 @@ def get_repo(name: str, path:str) -> GitRepo:
         return repo
     raise NotAGitRepo(f'path {path} is not a git repo')
 
-
 def is_repo(path:str) -> bool:
     repodir =  Path(path)
     if repodir.exists():
@@ -28,29 +24,10 @@ def is_repo(path:str) -> bool:
 
 @git_command.pushd
 def get_remote(path:str) -> str:
-    # cwd = os.getcwd()
     os.chdir(Path(path).resolve())
-    command = 'git remote -v'.split()
-    try:
-        result = subprocess.run(command, check=True, shell=False, capture_output=True, text=True)
-        if result.stdout:
-            name, url, mode = result.stdout.split('\n')[0].split()
-            return url
-        else:
-            return None
-    except subprocess.CalledProcessError as cpe:
-        raise GitCommandException(**vars(cpe))
-    # finally:
-        # os.chdir(cwd)
-
-if __name__ == '__main__':
-    import sys
-    path = Path(sys.argv[1]).resolve()
-    
-    if is_repo(path):
-        try:
-            print(get_remote(path))
-        except GitCommandException as gce:
-            print(gce.stderr)
+    result = git_command.run('git remote -v')
+    if result.stdout:
+        name, url, mode = result.stdout.split('\n')[0].split()
+        return url
     else:
-        print(f'not a git repo: {path}')
+        return None
