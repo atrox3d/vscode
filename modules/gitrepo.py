@@ -13,7 +13,7 @@ class GitRepo:
     path: Path
     remote: str = None
 
-    def __post_init__(self):
-        self.path = Path(self.path) if self.path is not None else None
-        if self.remote is None:
-            self.remote = git.get_remote(self.path)
+    # def __post_init__(self):
+        # self.path = Path(self.path) if self.path is not None else None
+        # if self.remote is None:
+            # self.remote = git.get_remote(self.path)

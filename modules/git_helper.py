@@ -2,9 +2,21 @@ from pathlib import Path
 import subprocess
 import os
 
+from .gitrepo import GitRepo
 
 class GitCommandException(subprocess.CalledProcessError):
     pass
+
+class NotAGitRepo(Exception):
+    pass
+
+def get_repo(name: str, path:str) -> GitRepo:
+    if is_repo(path):
+        remote = get_remote(path)
+        repo = GitRepo(name, path, remote)
+        return repo
+    raise NotAGitRepo(f'path {path} is not a git repo')
+
 
 def is_repo(path:str) -> bool:
     repodir =  Path(path)
