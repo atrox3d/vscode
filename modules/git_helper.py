@@ -70,7 +70,7 @@ class GitStatus:
     pull: bool
 
 import re
-def status(repo:GitRepo):
+def get_status(repo:GitRepo) -> GitStatus:
     '''
     git status --branch --porcelain
     ## master...origin/master [ahead 4]
@@ -82,8 +82,8 @@ def status(repo:GitRepo):
     branchstatus, *lines =  result.stdout.split('\n')
     branch_pattern = r'^## ([^ .]+)(\.{3}(\S+))*( \[{0,1}(\S+) (\d+)\]{0,1})*$'
     res = re.match(branch_pattern, branchstatus).groups()
-    print(f'{res = }')
-    branch, remote, _, position, n = res
+    # print(f'{res = }')
+    branch, _, remote, _, position, n = res
     if position == 'ahead':
         push = True
         pull = False
@@ -115,4 +115,4 @@ def status(repo:GitRepo):
                 case '?':
                     untracked.append(filename)
     status = GitStatus(branch, remote, position, modified, added, deleted, untracked, dirty, push, pull)
-    print(status)
+    return status
