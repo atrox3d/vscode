@@ -1,3 +1,4 @@
+from pathlib import Path
 import subprocess
 import os
 import shlex
@@ -8,14 +9,6 @@ class GitCommandException(subprocess.CalledProcessError):
 class NotAGitRepo(Exception):
     pass
 
-def run(command: str) -> subprocess.CompletedProcess:
-    args = shlex.split(command)
-    try:
-        completed = subprocess.run(command, check=True, shell=False, capture_output=True, text=True)
-        return completed
-    except subprocess.CalledProcessError as cpe:
-        raise GitCommandException(**vars(cpe))
-
 def pushd(fn):
     def wrapper(*args, **kwargs):
         cwd = os.getcwd()
@@ -23,3 +16,13 @@ def pushd(fn):
         os.chdir(cwd)
         return result
     return wrapper
+
+@pushd
+def run(command:str, path:str) -> subprocess.CompletedProcess:
+    os.chdir(Path(path).resolve())
+    args = shlex.split(command)
+    try:
+        completed = subprocess.run(command, check=True, shell=False, capture_output=True, text=True)
+        return completed
+    except subprocess.CalledProcessError as cpe:
+        raise GitCommandException(**vars(cpe))
