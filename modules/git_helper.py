@@ -1,5 +1,4 @@
 from pathlib import Path
-import subprocess
 import os
 
 from .gitrepo import GitRepo

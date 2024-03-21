@@ -1,5 +1,4 @@
 from modules.vscode_workspace import Workspace
-# from modules.gitrepo import GitRepo
 
 if __name__ == '__main__':
     import os

@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-# from .gitrepo import GitRepo
 from . import git_helper as git
 
 class Workspace:
@@ -37,11 +36,3 @@ class Workspace:
                     yield git.get_repo(name, path)
                 except git.NotAGitRepo:
                     pass
-
-
-if __name__ == '__main__':
-    ws = Workspace('code-workspace.code-workspace')
-    print(ws.get_folders(False))
-    # print(ws.get_items())
-    # print(ws.get_names())
-    

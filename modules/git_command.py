@@ -1,8 +1,6 @@
-from pathlib import Path
 import subprocess
 import os
 import shlex
-
 
 class GitCommandException(subprocess.CalledProcessError):
     pass
