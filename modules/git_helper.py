@@ -2,6 +2,7 @@ from pathlib import Path
 from dataclasses import dataclass
 
 from . import git_command
+from .git_command import GitCommandException
 
 @dataclass
 class GitRepo:
@@ -34,15 +35,19 @@ def get_remote(path:str) -> str:
     else:
         return None
 
-def status(path:str):
+def status(repo:GitRepo):
     '''
     git status --branch --porcelain
     ## master...origin/master [ahead 4]
     M modules/git_helper.py
     '''
-    result = git_command.run('git status --branch --porcelain', path)
+    command = 'git status --branchx --porcelain'
+    result = git_command.run(command, repo.path)
     if result.stdout:
         for line in result.stdout.split('\n'):
+            print(line)
+    if result.stderr:
+        for line in result.stderr.split('\n'):
             print(line)
     else:
         return None
