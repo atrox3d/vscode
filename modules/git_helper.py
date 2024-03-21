@@ -80,7 +80,7 @@ def status(repo:GitRepo):
     result = git_command.run(command, repo.path)
 
     branchstatus, *lines =  result.stdout.split('\n')
-    branch_pattern = r'^## ([^ .]+)\.{0,3}(\S*)( \[{0,1}(\S+) (\d+)\]{0,1})*$'
+    branch_pattern = r'^## ([^ .]+)(\.{3}(\S+))*( \[{0,1}(\S+) (\d+)\]{0,1})*$'
     res = re.match(branch_pattern, branchstatus).groups()
     print(f'{res = }')
     branch, remote, _, position, n = res
