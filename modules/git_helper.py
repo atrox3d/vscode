@@ -1,7 +1,13 @@
 from pathlib import Path
+from dataclasses import dataclass
 
-from .gitrepo import GitRepo
 from . import git_command
+
+@dataclass
+class GitRepo:
+    name: str
+    path: Path
+    remote: str = None
 
 class NotAGitRepo(Exception):
     pass
