@@ -4,7 +4,7 @@ from modules import git_helper as git
 if __name__ == '__main__':
     import os
     ws = Workspace('code-workspace.code-workspace')
-    for repo in ws.get_repos(recurse=True, absolute=False):
+    for repo in ws.get_repos(recurse=False, absolute=False):
         # print(f'{repo = }')
         try:
             status = git.get_status(repo)
@@ -14,3 +14,9 @@ if __name__ == '__main__':
         except git.GitCommandException as gce:
             print(gce)
             exit()
+    
+    test = git.get_repo('vscode', '.')
+    print(test)
+    status = git.get_status(test)
+    print(status)
+

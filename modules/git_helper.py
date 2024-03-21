@@ -61,6 +61,7 @@ class GitStatus:
     branch: str
     remote: str
     position: str
+    count:str
     modified: list
     added: list
     deleted: list
@@ -83,7 +84,7 @@ def get_status(repo:GitRepo) -> GitStatus:
     branch_pattern = r'^## ([^ .]+)(\.{3}(\S+))*( \[{0,1}(\S+) (\d+)\]{0,1})*$'
     res = re.match(branch_pattern, branchstatus).groups()
     # print(f'{res = }')
-    branch, _, remote, _, position, n = res
+    branch, _, remote, _, position, count = res
     if position == 'ahead':
         push = True
         pull = False
@@ -114,5 +115,9 @@ def get_status(repo:GitRepo) -> GitStatus:
                     deleted.append(filename)
                 case '?':
                     untracked.append(filename)
-    status = GitStatus(branch, remote, position, modified, added, deleted, untracked, dirty, push, pull)
+    status = GitStatus(
+                    branch, remote, position, count, modified, 
+                    added, deleted, untracked, dirty, 
+                    push, pull
+                    )
     return status
