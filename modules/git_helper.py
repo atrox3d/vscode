@@ -1,5 +1,6 @@
 from pathlib import Path
 from dataclasses import dataclass
+import re
 
 from . import git_command
 from .git_command import GitCommandException
@@ -61,7 +62,7 @@ class GitStatus:
     branch: str
     remote: str
     position: str
-    count:str
+    commits: str
     modified: list
     added: list
     deleted: list
@@ -70,7 +71,6 @@ class GitStatus:
     push: bool
     pull: bool
 
-import re
 def get_status(repo:GitRepo) -> GitStatus:
     '''
     git status --branch --porcelain
@@ -84,7 +84,7 @@ def get_status(repo:GitRepo) -> GitStatus:
     branch_pattern = r'^## ([^ .]+)(\.{3}(\S+))*( \[{0,1}(\S+) (\d+)\]{0,1})*$'
     res = re.match(branch_pattern, branchstatus).groups()
     # print(f'{res = }')
-    branch, _, remote, _, position, count = res
+    branch, _, remote, _, position, commits = res
     if position == 'ahead':
         push = True
         pull = False
@@ -115,9 +115,8 @@ def get_status(repo:GitRepo) -> GitStatus:
                     deleted.append(filename)
                 case '?':
                     untracked.append(filename)
-    status = GitStatus(
-                    branch, remote, position, count, modified, 
-                    added, deleted, untracked, dirty, 
-                    push, pull
-                    )
+    
+    status = GitStatus(branch, remote, position, commits,
+                       modified, added, deleted, untracked, 
+                       dirty, push, pull)
     return status

@@ -10,7 +10,13 @@ if __name__ == '__main__':
             status = git.get_status(repo)
             # print(f'{status = }')
             # print(repo)
-            print(f'{repo.name:30.30} {repo.path.stem:30.30} {"DIRTY" if status.dirty else ""}')
+            print(
+                  f'{repo.name:30.30} '
+                  f'{repo.path.stem:30.30} '
+                  f'{status.position} '
+                  f'{status.commits} '
+                  f'{"DIRTY" if status.dirty else ""}'
+                  )
         except git.GitCommandException as gce:
             print(gce)
             exit()
