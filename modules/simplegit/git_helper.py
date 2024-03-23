@@ -2,8 +2,8 @@ from pathlib import Path
 from dataclasses import dataclass
 import re
 
-from .simplegit import git_command
-from .simplegit.git_command import GitCommandException
+from . import git_command
+from .git_command import GitCommandException
 
 @dataclass
 class GitRepo:

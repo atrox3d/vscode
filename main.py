@@ -1,5 +1,5 @@
 from modules.vscode import Workspace
-from modules import git_helper as git
+from modules.simplegit import git_helper as git
 
 if __name__ == '__main__':
     import os
