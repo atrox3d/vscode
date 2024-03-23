@@ -15,6 +15,8 @@ if __name__ == '__main__':
                   f'{repo.path.stem:30.30} '
                   f'{status.position} '
                   f'{status.commits} '
+                  f'{status.push} '
+                  f'{status.pull} '
                   f'{"DIRTY" if status.dirty else ""}'
                   )
         except git.GitCommandException as gce:
