@@ -29,19 +29,19 @@ class Workspace:
         returns a list of tuples containing name and path
         for each workspace folder
         '''
-        return [(folder.get('name', default_name), folder['path']) 
-                for folder in self.get_items()]
+        return ((folder.get('name', default_name), folder['path']) 
+                for folder in self.get_items())
 
     def get_names(self, default_name=None) -> list[str]:
         '''
         returns a list of only names for each workspace folder
         '''
-        return [item['name'] for item in self.get_items()]
+        return (item['name'] for item in self.get_items())
 
     def get_paths(self, absolute=True) -> list[str]:
-        folders = [item['path'] for item in self.get_items()]
+        folders = (item['path'] for item in self.get_items())
         if absolute:
-            return [str(Path(folder).resolve()) for folder in folders]
+            return (str(Path(folder).resolve()) for folder in folders)
         return folders
     
     def get_repos(self, absolute=False, recurse=False):
