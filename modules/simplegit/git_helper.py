@@ -9,36 +9,8 @@ from . import git_command
 # print('from .git_command import GitCommandException')
 # from .git_command import GitCommandException
 
-@dataclass
-class GitRepo:
-    name: str
-    path: Path
-    remote: str = None
-
 class NotAGitRepo(Exception):
     pass
-
-def get_repo(name: str, path:str) -> GitRepo:
-    if is_repo(path):
-        remote = get_remote(path)
-        repo = GitRepo(name, path, remote)
-        return repo
-    raise NotAGitRepo(f'path {path} is not a git repo')
-
-def is_repo(path:str) -> bool:
-    repodir =  Path(path)
-    if repodir.exists():
-        gitdir = repodir / '.git'
-        return gitdir.is_dir()
-    raise FileNotFoundError(f'is_repo: {repodir} does not exist')
-
-def get_remote(path:str) -> str:
-    result = git_command.run('git remote -v', path)
-    if result.stdout:
-        name, url, mode = result.stdout.split('\n')[0].split()
-        return url
-    else:
-        return None
 
 @dataclass
 class GitStatus:
@@ -74,6 +46,42 @@ class GitStatus:
     dirty: bool
     push: bool
     pull: bool
+
+
+@dataclass
+class GitRepo:
+    name: str
+    path: Path
+    remote: str = None
+
+    def get_status(self) -> GitStatus:
+        return get_status(self)
+    
+    def is_dirty(self):
+        return self.get_status().dirty
+
+
+def get_repo(name: str, path:str) -> GitRepo:
+    if is_repo(path):
+        remote = get_remote(path)
+        repo = GitRepo(name, path, remote)
+        return repo
+    raise NotAGitRepo(f'path {path} is not a git repo')
+
+def is_repo(path:str) -> bool:
+    repodir =  Path(path)
+    if repodir.exists():
+        gitdir = repodir / '.git'
+        return gitdir.is_dir()
+    raise FileNotFoundError(f'is_repo: {repodir} does not exist')
+
+def get_remote(path:str) -> str:
+    result = git_command.run('git remote -v', path)
+    if result.stdout:
+        name, url, mode = result.stdout.split('\n')[0].split()
+        return url
+    else:
+        return None
 
 def get_status(repo:GitRepo) -> GitStatus:
     '''

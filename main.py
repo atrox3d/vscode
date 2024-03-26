@@ -3,10 +3,10 @@ from modules.simplegit import git
 
 if __name__ == '__main__':
     ws = Workspace('code-workspace.code-workspace')
-    for repo in ws.get_repos(recurse=True):
+    for repo in ws.get_repos(recurse=False):
         # print(f'{repo = }')
         try:
-            status = git.get_status(repo)
+            status = repo.get_status()
             # print(f'{status = }')
             # print(repo)
             print(
@@ -16,7 +16,7 @@ if __name__ == '__main__':
                   f'{status.commits} '
                   f'{status.push} '
                   f'{status.pull} '
-                  f'{"DIRTY" if status.dirty else ""}'
+                  f'{"DIRTY" if repo.is_dirty() else ""}'
                   )
         except git.GitCommandException as gce:
             print(gce)
