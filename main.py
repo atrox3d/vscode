@@ -3,7 +3,7 @@ from modules.simplegit import git
 
 if __name__ == '__main__':
     ws = Workspace('code-workspace.code-workspace')
-    for repo in ws.get_repos(recurse=False, absolute=False):
+    for repo in ws.get_repos():
         # print(f'{repo = }')
         try:
             status = git.get_status(repo)
