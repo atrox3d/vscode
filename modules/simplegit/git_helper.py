@@ -7,7 +7,7 @@ import re
 # print('from . import git_command')
 from . import git_command
 # print('from .git_command import GitCommandException')
-from .git_command import GitCommandException
+# from .git_command import GitCommandException
 
 @dataclass
 class GitRepo:
