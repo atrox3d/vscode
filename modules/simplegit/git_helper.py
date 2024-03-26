@@ -1,3 +1,5 @@
+print(f'IMPORT | {__name__}')
+
 from pathlib import Path
 from dataclasses import dataclass
 import re

@@ -1,3 +1,5 @@
+print(f'IMPORT | {__name__}')
+
 from pathlib import Path
 import subprocess
 import os

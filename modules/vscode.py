@@ -1,3 +1,5 @@
+print(f'IMPORT | {__name__}')
+
 import json
 from pathlib import Path
 
