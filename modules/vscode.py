@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from .simplegit import git_helper as git
+from .simplegit import git
 
 class Workspace:
     def __init__(self, path:str) -> None:

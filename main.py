@@ -1,8 +1,7 @@
 from modules.vscode import Workspace
-from modules.simplegit import git_helper as git
+from modules.simplegit import git
 
 if __name__ == '__main__':
-    import os
     ws = Workspace('code-workspace.code-workspace')
     for repo in ws.get_repos(recurse=False, absolute=False):
         # print(f'{repo = }')
