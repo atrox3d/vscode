@@ -6,15 +6,16 @@ import re
 from modules.simplegit.repo import GitRepo
 from modules.simplegit.status import GitStatus
 
-# print('from . import git_command')
 from . import git_command
-# print('from .git_command import GitCommandException')
 from .git_command import GitCommandException
 
 class NotAGitRepo(Exception):
     pass
 
 def get_repo(name: str, path:str) -> GitRepo:
+    '''
+    factory method, creates GitRepo object from path
+    '''
     if is_repo(path):
         remote = get_remote(path)
         repo = GitRepo(name, path, remote)
@@ -29,6 +30,9 @@ def is_repo(path:str) -> bool:
     raise FileNotFoundError(f'is_repo: {repodir} does not exist')
 
 def get_remote(path:str) -> str:
+    '''
+    extracts remote from git remote command
+    '''
     result = git_command.run('git remote -v', path)
     if result.stdout:
         name, url, mode = result.stdout.split('\n')[0].split()
@@ -38,6 +42,8 @@ def get_remote(path:str) -> str:
 
 def get_status(repo:GitRepo) -> GitStatus:
     '''
+    factory method, creates GitStatus object from git status command
+
     git status --branch --porcelain
     ## master...origin/master [ahead 4]
     M modules/git_helper.py
@@ -57,18 +63,13 @@ def get_status(repo:GitRepo) -> GitStatus:
     elif status.position == 'behind':
         status.push = False
         status.pull = True
-    else:
-        status.push = False
-        status.pull = False
     
-    # added = modified = deleted = untracked = []
-    # dirty = False
     for line in [line for line in lines if len(line)]:
         index = line[0]
-        workspace = line[1]
+        worktree = line[1]
         filename = line[2:]
         status.dirty = True
-        match workspace:
+        match worktree:
             case 'A':
                 status.added.append(filename)
             case 'M':
@@ -78,8 +79,4 @@ def get_status(repo:GitRepo) -> GitStatus:
             case '?':
                 if index == '?':
                     status.untracked.append(filename)
-    
-    # status = GitStatus(branch, remote, position, commits,
-                    #    modified, added, deleted, untracked, 
-                    #    dirty, push, pull)
     return status
