@@ -48,37 +48,38 @@ def get_status(repo:GitRepo) -> GitStatus:
     branchstatus, *lines =  result.stdout.split('\n')
     branch_pattern = r'^## ([^ .]+)(\.{3}(\S+))*( \[{0,1}(\S+) (\d+)\]{0,1})*$'
     res = re.match(branch_pattern, branchstatus).groups()
-    branch, _, remote, _, position, commits = res
+    status = GitStatus()
+    status.branch, _, status.remote, _, status.position, status.commits = res
 
-    if position == 'ahead':
-        push = True
-        pull = False
-    elif position == 'behind':
-        push = False
-        pull = True
+    if status.position == 'ahead':
+        status.push = True
+        status.pull = False
+    elif status.position == 'behind':
+        status.push = False
+        status.pull = True
     else:
-        push = False
-        pull = False
+        status.push = False
+        status.pull = False
     
-    added = modified = deleted = untracked = []
-    dirty = False
+    # added = modified = deleted = untracked = []
+    # dirty = False
     for line in [line for line in lines if len(line)]:
         index = line[0]
         workspace = line[1]
         filename = line[2:]
-        dirty = True
+        status.dirty = True
         match workspace:
             case 'A':
-                added.append(filename)
+                status.added.append(filename)
             case 'M':
-                modified.append(filename)
+                status.modified.append(filename)
             case 'D':
-                deleted.append(filename)
+                status.deleted.append(filename)
             case '?':
                 if index == '?':
-                    untracked.append(filename)
+                    status.untracked.append(filename)
     
-    status = GitStatus(branch, remote, position, commits,
-                       modified, added, deleted, untracked, 
-                       dirty, push, pull)
+    # status = GitStatus(branch, remote, position, commits,
+                    #    modified, added, deleted, untracked, 
+                    #    dirty, push, pull)
     return status

@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -24,14 +24,14 @@ class GitStatus:
     and is more concise than version 2. 
     As a result, it's easier and safer to use it within a script.
     '''
-    branch: str
-    remote: str
-    position: str
-    commits: str
-    modified: list
-    added: list
-    deleted: list
-    untracked: list
-    dirty: bool
-    push: bool
-    pull: bool
+    branch: str = None
+    remote: str = None
+    position: str = None
+    commits: str = None
+    modified: list = field(default_factory=list)
+    added: list = field(default_factory=list)
+    deleted: list = field(default_factory=list)
+    untracked: list = field(default_factory=list)
+    dirty: bool = False
+    push: bool = False
+    pull: bool = False
