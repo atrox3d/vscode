@@ -6,7 +6,7 @@ if __name__ == '__main__':
     for repo in ws.get_repos(recurse=False):
         # print(f'{repo = }')
         try:
-            status = repo.get_status()
+            status = git.get_status(repo)
             # print(f'{status = }')
             # print(repo)
             print(
@@ -16,7 +16,7 @@ if __name__ == '__main__':
                   f'{status.commits} '
                   f'{status.push} '
                   f'{status.pull} '
-                  f'{"DIRTY" if repo.is_dirty() else ""}'
+                  f'{"DIRTY" if status.dirty else ""}'
                   )
         except git.GitCommandException as gce:
             print(gce)
