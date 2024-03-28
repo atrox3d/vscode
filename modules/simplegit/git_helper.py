@@ -48,8 +48,8 @@ def get_status(repo:GitRepo) -> GitStatus:
     branchstatus, *lines =  result.stdout.split('\n')
     branch_pattern = r'^## ([^ .]+)(\.{3}(\S+))*( \[{0,1}(\S+) (\d+)\]{0,1})*$'
     res = re.match(branch_pattern, branchstatus).groups()
-    # print(f'{res = }')
     branch, _, remote, _, position, commits = res
+
     if position == 'ahead':
         push = True
         pull = False
@@ -60,25 +60,22 @@ def get_status(repo:GitRepo) -> GitStatus:
         push = False
         pull = False
     
-    added = []
-    modified = []
-    deleted = []
-    untracked = []
+    added = modified = deleted = untracked = []
     dirty = False
-    for line in lines:
-        if len(line):
-            index = line[0]
-            workspace = line[1]
-            filename = line[2:]
-            dirty = True
-            match workspace:
-                case 'A':
-                    added.append(filename)
-                case 'M':
-                    modified.append(filename)
-                case 'D':
-                    deleted.append(filename)
-                case '?':
+    for line in [line for line in lines if len(line)]:
+        index = line[0]
+        workspace = line[1]
+        filename = line[2:]
+        dirty = True
+        match workspace:
+            case 'A':
+                added.append(filename)
+            case 'M':
+                modified.append(filename)
+            case 'D':
+                deleted.append(filename)
+            case '?':
+                if index == '?':
                     untracked.append(filename)
     
     status = GitStatus(branch, remote, position, commits,
