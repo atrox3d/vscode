@@ -59,9 +59,7 @@ def get_status(repo:GitRepo) -> GitStatus:
 
     if status.position == 'ahead':
         status.push = True
-        status.pull = False
     elif status.position == 'behind':
-        status.push = False
         status.pull = True
     
     for line in [line for line in lines if len(line)]:
