@@ -63,18 +63,22 @@ def get_status(repo:GitRepo) -> GitStatus:
         status.pull = True
     
     for line in [line for line in lines if len(line)]:
-        index = line[0]
-        worktree = line[1]
-        filename = line[2:]
+        # index = line[0]
+        # worktree = line[1]
+        # filename = line[2:]
         status.dirty = True
-        match worktree:
-            case 'A':
+        # match worktree:
+        match line.split():
+            case 'A', filename:
                 status.added.append(filename)
-            case 'M':
+            case 'M', filename:
                 status.modified.append(filename)
-            case 'D':
+            case 'D', filename:
                 status.deleted.append(filename)
-            case '?':
-                if index == '?':
-                    status.untracked.append(filename)
+            case '??', filename:
+                # if index == '?':
+                status.untracked.append(filename)
+            case _:
+                raise ValueError(f'unknown status {line!r}')
     return status
+
