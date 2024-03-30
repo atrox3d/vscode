@@ -1,3 +1,4 @@
+import json
 from vscode import Workspace
 from atrox3d.simplegit import git
 
@@ -8,7 +9,7 @@ if __name__ == '__main__':
             status = git.get_status(repo)
             print(
                   f'{repo.name:30.30} '
-                  f'{repo.path.stem:30.30} '
+                  f'{repo.get_path().stem:30.30} '
                   f'{status.position} '
                   f'{status.commits} '
                   f'{status.push} '
@@ -19,8 +20,9 @@ if __name__ == '__main__':
             print(gce)
             exit()
     
-    test = git.get_repo('vscode', '.')
-    print(test)
-    status = git.get_status(test)
-    print(status)
+    # test = git.get_repo('vscode', '.')
+    # print(test)
+    # status = git.get_status(test)
+    # print(status)
 
+    print(json.dumps(list(ws.get_clones()), indent=2))

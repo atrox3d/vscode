@@ -64,6 +64,10 @@ class Workspace:
                 except git.NotAGitRepo:
                     pass
 
+    def get_clones(self):
+        return (repo.asdict() for repo in 
+                self.get_repos(absolute=True, recurse=True))
+
 if __name__ == '__main__':
     ws = Workspace('code-workspace.code-workspace')
     for method in ws.get_items, ws.get_tuples, ws.get_names, ws.get_paths, ws.get_repos:
