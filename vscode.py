@@ -1,12 +1,5 @@
-print(f'IMPORT | {__name__}')
-
 import json
 from pathlib import Path
-
-# if __name__ == '__main__':
-    # from simplegit import git
-# else:
-    # from .simplegit import git
 
 from atrox3d.simplegit import git
 
@@ -42,12 +35,24 @@ class Workspace:
         return (item['name'] for item in self.get_items())
 
     def get_paths(self, absolute=True) -> list[str]:
+        '''
+        returns a list of only absolute paths for each workspace folder
+        '''
         folders = (item['path'] for item in self.get_items())
         if absolute:
             return (str(Path(folder).resolve()) for folder in folders)
         return folders
     
     def get_repos(self, absolute=False, recurse=False):
+        '''
+        return a list of GitRepo objects for each workspace folder,
+        excluding non-git repos
+
+        if recurse==True, searches recursively every git repo inside 
+        each workspace item
+
+        if absolute==True, the paths are converted to absolute paths
+        '''
         for name, path in self.get_tuples():
             path = Path(path).resolve() if absolute else Path(path)
             if recurse:
