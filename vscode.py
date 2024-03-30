@@ -16,13 +16,13 @@ class Workspace:
     def get_items(self) -> dict[str, str]:
         '''
         returns array "folders" from workspace json,
-        each element is a dict with name and path
+        each element is a dict with [name] and path
         '''
         return self.data['folders']
 
     def get_tuples(self, default_name=None) -> list[tuple[str, str]]:
         '''
-        returns a list of tuples containing name and path
+        returns a list of tuples containing [name or default_name] and path
         for each workspace folder
         '''
         return ((folder.get('name', default_name), folder['path']) 
@@ -30,7 +30,7 @@ class Workspace:
 
     def get_names(self, default_name=None) -> list[str]:
         '''
-        returns a list of only names for each workspace folder
+        returns a list of only [names or default_names] for each workspace folder
         '''
         return (item['name'] for item in self.get_items())
 
