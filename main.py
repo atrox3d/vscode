@@ -1,5 +1,5 @@
 from modules.vscode import Workspace
-from modules.simplegit import git
+from atrox3d.simplegit import git
 
 if __name__ == '__main__':
     ws = Workspace('code-workspace.code-workspace')

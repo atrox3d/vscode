@@ -3,10 +3,13 @@ print(f'IMPORT | {__name__}')
 import json
 from pathlib import Path
 
-if __name__ == '__main__':
-    from simplegit import git
-else:
-    from .simplegit import git
+# if __name__ == '__main__':
+    # from simplegit import git
+# else:
+    # from .simplegit import git
+
+from atrox3d.simplegit import git
+
 
 class Workspace:
     def __init__(self, path:str) -> None:
