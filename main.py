@@ -1,9 +1,9 @@
-from modules.vscode import Workspace
+from vscode import Workspace
 from atrox3d.simplegit import git
 
 if __name__ == '__main__':
     ws = Workspace('code-workspace.code-workspace')
-    for repo in ws.get_repos(recurse=False):
+    for repo in ws.get_repos(recurse=True):
         # print(f'{repo = }')
         try:
             status = git.get_status(repo)
