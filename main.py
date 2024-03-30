@@ -25,4 +25,5 @@ if __name__ == '__main__':
     # status = git.get_status(test)
     # print(status)
 
-    print(json.dumps(list(ws.get_clones()), indent=2))
+    # print(json.dumps(list(ws.get_clones()), indent=2))
+    ws.save_clones('clones.json')

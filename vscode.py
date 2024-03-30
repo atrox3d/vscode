@@ -67,6 +67,12 @@ class Workspace:
     def get_clones(self):
         return (repo.asdict() for repo in 
                 self.get_repos(absolute=True, recurse=True))
+    
+    def save_clones(self, path:str) -> None:
+        with open(path, 'w') as fp:
+            json.dump(list(self.get_clones()), fp, indent=2)
+    
+
 
 if __name__ == '__main__':
     ws = Workspace('code-workspace.code-workspace')
