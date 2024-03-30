@@ -1,5 +1,5 @@
 import json
-from vscode import Workspace
+from workspace import Workspace
 from atrox3d.simplegit import git
 
 if __name__ == '__main__':
