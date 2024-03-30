@@ -3,12 +3,9 @@ from atrox3d.simplegit import git
 
 if __name__ == '__main__':
     ws = Workspace('code-workspace.code-workspace')
-    for repo in ws.get_repos(recurse=True):
-        # print(f'{repo = }')
+    for repo in ws.get_repos(recurse=False):
         try:
             status = git.get_status(repo)
-            # print(f'{status = }')
-            # print(repo)
             print(
                   f'{repo.name:30.30} '
                   f'{repo.path.stem:30.30} '
