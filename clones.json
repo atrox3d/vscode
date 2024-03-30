@@ -1,647 +1,637 @@
 [
   {
     "name": "bin",
-    "path": "C:\\Users\\nigga\\bin",
+    "path": "..\\..\\bin",
     "remote": "https://github.com/atrox3d/userprofile-bin.git"
   },
   {
     "name": "bin-projects",
-    "path": "C:\\Users\\nigga\\bin-projects\\explore-network",
+    "path": "..\\..\\bin-projects\\explore-network",
     "remote": "https://github.com/atrox3d/explore-network.git"
   },
   {
     "name": "bin-projects",
-    "path": "C:\\Users\\nigga\\bin-projects\\kodi",
+    "path": "..\\..\\bin-projects\\kodi",
     "remote": "https://github.com/atrox3d/kodi-scripts.git"
   },
   {
     "name": "bin-projects",
-    "path": "C:\\Users\\nigga\\bin-projects\\normalize",
+    "path": "..\\..\\bin-projects\\normalize",
     "remote": "https://github.com/atrox3d/normalize.git"
   },
   {
     "name": "bin-projects",
-    "path": "C:\\Users\\nigga\\bin-projects\\pycharm-setup",
+    "path": "..\\..\\bin-projects\\pycharm-setup",
     "remote": "https://github.com/atrox3d/pycharm-setup-project.git"
   },
   {
     "name": "bin-projects",
-    "path": "C:\\Users\\nigga\\bin-projects\\srt-tool-python",
+    "path": "..\\..\\bin-projects\\srt-tool-python",
     "remote": "https://github.com/atrox3d/srt-tool-python.git"
   },
   {
     "name": "zio",
-    "path": "C:\\Users\\nigga\\code\\zio\\cryptedit",
+    "path": "..\\zio\\cryptedit",
     "remote": "https://github.com/atrox3d/cryptedit.git"
   },
   {
     "name": "zio",
-    "path": "C:\\Users\\nigga\\code\\zio\\pink-tailscale-bin",
+    "path": "..\\zio\\pink-tailscale-bin",
     "remote": "https://github.com/atrox3d/pink-tailscale-bin.git"
   },
   {
     "name": "arjancodes",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\arjancodes\\2021-dependency-injection-inversion",
+    "path": "..\\python\\online-tutorials\\arjancodes\\2021-dependency-injection-inversion",
     "remote": "https://github.com/atrox3d/2021-dependency-injection-inversion.git"
   },
   {
     "name": "arjancodes",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\arjancodes\\2021-factory-pattern",
+    "path": "..\\python\\online-tutorials\\arjancodes\\2021-factory-pattern",
     "remote": "https://github.com/atrox3d/2021-factory-pattern.git"
   },
   {
     "name": "arjancodes",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\arjancodes\\betterpython",
+    "path": "..\\python\\online-tutorials\\arjancodes\\betterpython",
     "remote": "https://github.com/atrox3d/betterpython.git"
   },
   {
     "name": "arjancodes",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\arjancodes\\match",
+    "path": "..\\python\\online-tutorials\\arjancodes\\match",
     "remote": "https://github.com/atrox3d/structural-pattern-matching.git"
   },
   {
     "name": "arjancodes",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\arjancodes\\x",
+    "path": "..\\python\\online-tutorials\\arjancodes\\x",
     "remote": "https://github.com/atrox3d/x.git"
   },
   {
-    "name": "arjancodes",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\arjancodes\\yaimport",
-    "remote": null
-  },
-  {
     "name": "packaging-your-python-code-with-project.toml",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\realpython\\packaging-your-python-code-with-project.toml",
+    "path": "..\\python\\online-tutorials\\realpython\\packaging-your-python-code-with-project.toml",
     "remote": "https://github.com/atrox3d/packaging-your-python-code-with-project.toml.git"
   },
   {
     "name": "atrox3d-package",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\atrox3d-package",
+    "path": "..\\python\\online-tutorials\\atrox3d-package",
     "remote": "https://github.com/atrox3d/atrox3d-package.git"
   },
   {
     "name": "atrox3d-project",
-    "path": "C:\\Users\\nigga\\code\\python\\my-projects\\atrox3d-project",
+    "path": "..\\python\\my-projects\\atrox3d-project",
     "remote": "https://github.com/atrox3d/atrox3d-project.git"
   },
   {
     "name": "james-powell",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\james-powell\\so-you-want-to-be-a-python-expert",
+    "path": "..\\python\\online-tutorials\\james-powell\\so-you-want-to-be-a-python-expert",
     "remote": "https://github.com/atrox3d/so-you-want-to-be-a-python-expert.git"
   },
   {
     "name": "bobby-hadz",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\bobby-hadz\\dict-dot-notation",
+    "path": "..\\python\\online-tutorials\\bobby-hadz\\dict-dot-notation",
     "remote": "https://github.com/atrox3d/dict-dot-notation.git"
   },
   {
     "name": "scratches",
-    "path": "C:\\Users\\nigga\\code\\python\\pycharm\\scratches",
+    "path": "..\\python\\pycharm\\scratches",
     "remote": "https://github.com/atrox3d/pycharm-scratches.git"
   },
   {
     "name": "playground",
-    "path": "C:\\Users\\nigga\\code\\python\\playground\\argparse",
+    "path": "..\\python\\playground\\argparse",
     "remote": "https://github.com/atrox3d/argparse.git"
   },
   {
-    "name": "playground",
-    "path": "C:\\Users\\nigga\\code\\python\\playground\\fucking-imports\\pythonforthelab.com\\code",
-    "remote": null
-  },
-  {
     "name": "aoc",
-    "path": "C:\\Users\\nigga\\code\\python\\aoc",
+    "path": "..\\python\\aoc",
     "remote": "https://github.com/atrox3d/advent-of-code.git"
   },
   {
     "name": "codewars",
-    "path": "C:\\Users\\nigga\\code\\python\\codewars",
+    "path": "..\\python\\codewars",
     "remote": "https://github.com/atrox3d/code-wars.git"
   },
   {
     "name": "recursion",
-    "path": "C:\\Users\\nigga\\code\\python\\online-tutorials\\recursion",
+    "path": "..\\python\\online-tutorials\\recursion",
     "remote": "https://github.com/atrox3d/recursion-tutorial.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\549-cafe-api-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\549-cafe-api-start",
     "remote": "https://github.com/atrox3d/1HDOC-549-cafe-api-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\567-flask-auth-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\567-flask-auth-start",
     "remote": "https://github.com/atrox3d/1HDOC-567-flask-auth-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\569-blog-with-users-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\569-blog-with-users-start",
     "remote": "https://github.com/atrox3d/1HDOC-569-blog-with-users-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\API-keys",
+    "path": "..\\python\\udemy\\100-days-of-code\\API-keys",
     "remote": "https://github.com/atrox3d/1HDOC-API-keys.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\birthday-wisher-normal-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\birthday-wisher-normal-start",
     "remote": "https://github.com/atrox3d/1HDOC-birthday-wisher-normal-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\BirthdayWisher-Day32-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\BirthdayWisher-Day32-start",
     "remote": "https://github.com/atrox3d/1HDOC-BirthdayWisher-Day32-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\bs4-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\bs4-start",
     "remote": "https://github.com/atrox3d/100-days-of-code-bs4-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\coffee-and-wifi",
+    "path": "..\\python\\udemy\\100-days-of-code\\coffee-and-wifi",
     "remote": "https://github.com/atrox3d/1HDOC-coffee-and-wifi.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\CoffeeMachine",
+    "path": "..\\python\\udemy\\100-days-of-code\\CoffeeMachine",
     "remote": "https://github.com/atrox3d/1HDOC-CoffeeMachine.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\day-16-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\day-16-start",
     "remote": "https://github.com/atrox3d/1HDOC-day-16-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\day-17-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\day-17-start",
     "remote": "https://github.com/atrox3d/day-17-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\day-18-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\day-18-start",
     "remote": "https://github.com/atrox3d/day-18-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\day-19-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\day-19-start",
     "remote": "https://github.com/atrox3d/day-19-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\day-25-csv",
+    "path": "..\\python\\udemy\\100-days-of-code\\day-25-csv",
     "remote": "https://github.com/atrox3d/day-25-csv.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\day-27",
+    "path": "..\\python\\udemy\\100-days-of-code\\day-27",
     "remote": "https://github.com/atrox3d/day-27.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\day-33-APIs",
+    "path": "..\\python\\udemy\\100-days-of-code\\day-33-APIs",
     "remote": "https://github.com/atrox3d/1HDOC-day-33-APIs.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\day-48-selenium",
+    "path": "..\\python\\udemy\\100-days-of-code\\day-48-selenium",
     "remote": "https://github.com/atrox3d/1HDOC-day-48-selenium.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\day-57-capstone-project",
+    "path": "..\\python\\udemy\\100-days-of-code\\day-57-capstone-project",
     "remote": "https://github.com/atrox3d/1HDOC-day-57-capstone-project.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\day-57-jinja",
+    "path": "..\\python\\udemy\\100-days-of-code\\day-57-jinja",
     "remote": "https://github.com/atrox3d/1HDOC-day-57-jinja.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\flash-card-project-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\flash-card-project-start",
     "remote": "https://github.com/atrox3d/1HDOC-flash-card-project-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\flask-secrets",
+    "path": "..\\python\\udemy\\100-days-of-code\\flask-secrets",
     "remote": "https://github.com/atrox3d/1HDOC-flask-secrets.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\habit-tracker",
+    "path": "..\\python\\udemy\\100-days-of-code\\habit-tracker",
     "remote": "https://github.com/atrox3d/1HDOC-habit-tracker.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\hello-flask",
+    "path": "..\\python\\udemy\\100-days-of-code\\hello-flask",
     "remote": "https://github.com/atrox3d/1HDOC-hello-flask.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\html-forms",
+    "path": "..\\python\\udemy\\100-days-of-code\\html-forms",
     "remote": "https://github.com/atrox3d/1HDOC-html-forms.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\library-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\library-start",
     "remote": "https://github.com/atrox3d/1HDOC-library-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\Mail-Merge-Project-Start",
+    "path": "..\\python\\udemy\\100-days-of-code\\Mail-Merge-Project-Start",
     "remote": "https://github.com/atrox3d/1HDOC-Mail-Merge-Project-Start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\music-time-machine",
+    "path": "..\\python\\udemy\\100-days-of-code\\music-time-machine",
     "remote": "https://github.com/atrox3d/1HDOC-music-time-machine.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\my-personal-site",
+    "path": "..\\python\\udemy\\100-days-of-code\\my-personal-site",
     "remote": "https://github.com/atrox3d/1HDOC-my-personal-site.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\name-card",
+    "path": "..\\python\\udemy\\100-days-of-code\\name-card",
     "remote": "https://github.com/atrox3d/1HDOC-name-card.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\NATO-alphabet-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\NATO-alphabet-start",
     "remote": "https://github.com/atrox3d/NATO-alphabet-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\oop-coffee-machine",
+    "path": "..\\python\\udemy\\100-days-of-code\\oop-coffee-machine",
     "remote": "https://github.com/atrox3d/oop-coffee-machine.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\password-manager-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\password-manager-start",
     "remote": "https://github.com/atrox3d/password-manager-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\pomodoro-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\pomodoro-start",
     "remote": "https://github.com/atrox3d/pomodoro-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\pong-game",
+    "path": "..\\python\\udemy\\100-days-of-code\\pong-game",
     "remote": "https://github.com/atrox3d/pong-game.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\quiz-game-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\quiz-game-start",
     "remote": "https://github.com/atrox3d/quiz-game-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\quizzler-app-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\quizzler-app-start",
     "remote": "https://github.com/atrox3d/1HDOC-quizzler-app-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\sf-renting-research",
+    "path": "..\\python\\udemy\\100-days-of-code\\sf-renting-research",
     "remote": "https://github.com/atrox3d/1HDOC-sf-renting-research.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\snake-game",
+    "path": "..\\python\\udemy\\100-days-of-code\\snake-game",
     "remote": "https://github.com/atrox3d/snake-game.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\sqlite",
+    "path": "..\\python\\udemy\\100-days-of-code\\sqlite",
     "remote": "https://github.com/atrox3d/1HDOC-sqlite.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\stock-news-normal-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\stock-news-normal-start",
     "remote": "https://github.com/atrox3d/1HDOC-stock-news-normal-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\turtle-crossing-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\turtle-crossing-start",
     "remote": "https://github.com/atrox3d/turtle-crossing-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\upgraded-blog",
+    "path": "..\\python\\udemy\\100-days-of-code\\upgraded-blog",
     "remote": "https://github.com/atrox3d/1HDOC-upgraded-blog.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\us-states-game-start",
+    "path": "..\\python\\udemy\\100-days-of-code\\us-states-game-start",
     "remote": "https://github.com/atrox3d/1HDOC-us-states-game-start.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\web-developement",
+    "path": "..\\python\\udemy\\100-days-of-code\\web-developement",
     "remote": "https://github.com/atrox3d/web-developement.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\100-days-of-code\\workout-tracker",
+    "path": "..\\python\\udemy\\100-days-of-code\\workout-tracker",
     "remote": "https://github.com/atrox3d/1HDOC-workout-tracker.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\audio-processing",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\audio-processing",
     "remote": "https://github.com/atrox3d/udemy-aewp-audio-processing.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\automating-emails",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\automating-emails",
     "remote": "https://github.com/atrox3d/udemy-aewp-automating-emails.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\controlling-pc",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\controlling-pc",
     "remote": "https://github.com/atrox3d/udemy-aewp-controlling-pc.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\download-and-share-files",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\download-and-share-files",
     "remote": "https://github.com/atrox3d/udemy-aewp-download-and-share-files.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\english-dictionary-desktop-gui-app",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\english-dictionary-desktop-gui-app",
     "remote": "https://github.com/atrox3d/udemy-aewp-english-dictionary-desktop-gui-app.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\flask-web-app",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\flask-web-app",
     "remote": "https://github.com/atrox3d/udemy-aewp-flask-web-app.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\image-processing",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\image-processing",
     "remote": "https://github.com/atrox3d/udemy-aewp-image-processing.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\intro-to-pahtlib",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\intro-to-pahtlib",
     "remote": "https://github.com/atrox3d/udemy-aewp-intro-to-pahtlib.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\modern-python-tools",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\modern-python-tools",
     "remote": "https://github.com/atrox3d/udemy-aewp-modern-python-tools.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\nlp-natural-language-processing",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\nlp-natural-language-processing",
     "remote": "https://github.com/atrox3d/udemy-aewp-nlp-natural-language-processing.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\PDF",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\PDF",
     "remote": "https://github.com/atrox3d/udemy-aewp-PDF.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\pyqt-currency-converter",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\pyqt-currency-converter",
     "remote": "https://github.com/atrox3d/udemy-aewp-pyqt-currency-converter.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\pyqt-file-destroyer",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\pyqt-file-destroyer",
     "remote": "https://github.com/atrox3d/udemy-aewp-pyqt-file-destroyer.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\qr-code",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\qr-code",
     "remote": "https://github.com/atrox3d/udemy-aewp-qr-code.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\regular-expressions",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\regular-expressions",
     "remote": "https://github.com/atrox3d/udemy-aewp-regular-expressions.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\scrape-currency-with-beautiful-soup",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\scrape-currency-with-beautiful-soup",
     "remote": "https://github.com/atrox3d/udemy-aewp-scrape-currency-with-beautiful-soup.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\scrape-simple-text-with-selenium",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\scrape-simple-text-with-selenium",
     "remote": "https://github.com/atrox3d/udemy-aewp-scrape-simple-text-with-selenium.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\sql-databases",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\sql-databases",
     "remote": "https://github.com/atrox3d/udemy-aewp-sql-databases.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\webcam-capture-and-video-processing",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\webcam-capture-and-video-processing",
     "remote": "https://github.com/atrox3d/udemy-aewp-webcam-capture-and-video-processing.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\automate-everything-with-python\\working-with-google-sheets",
+    "path": "..\\python\\udemy\\automate-everything-with-python\\working-with-google-sheets",
     "remote": "https://github.com/atrox3d/udemy-aewp-working-with-google-sheets.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\build-a-backend-rest-api-with-python-and-django-advanced",
+    "path": "..\\python\\udemy\\build-a-backend-rest-api-with-python-and-django-advanced",
     "remote": "https://github.com/atrox3d/recipe-app-api.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\dynamic-programming-python-coding-interviews-and-applications",
+    "path": "..\\python\\udemy\\dynamic-programming-python-coding-interviews-and-applications",
     "remote": "https://github.com/atrox3d/udemy-dynamic-programming-python-coding-interviews-and-applications.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\hacking\\arpspoofer",
+    "path": "..\\python\\udemy\\hacking\\arpspoofer",
     "remote": "https://github.com/atrox3d/arpspoofer.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\hacking\\passwordcracker",
+    "path": "..\\python\\udemy\\hacking\\passwordcracker",
     "remote": "https://github.com/atrox3d/passwordcracker.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\hacking\\passwordsniffer",
+    "path": "..\\python\\udemy\\hacking\\passwordsniffer",
     "remote": "https://github.com/atrox3d/passwordsniffer.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\hacking\\portscanner",
+    "path": "..\\python\\udemy\\hacking\\portscanner",
     "remote": "https://github.com/atrox3d/udemyhack-portscanner.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\hacking\\sshbruteforce",
+    "path": "..\\python\\udemy\\hacking\\sshbruteforce",
     "remote": "https://github.com/atrox3d/sshbruteforce.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\hacking\\vulnscanner",
+    "path": "..\\python\\udemy\\hacking\\vulnscanner",
     "remote": "https://github.com/atrox3d/vulnscanner.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\python-programming-for-real-life-networking-use\\128-network-app",
+    "path": "..\\python\\udemy\\python-programming-for-real-life-networking-use\\128-network-app",
     "remote": "https://github.com/atrox3d/udemy-PNPCM-128-network-app.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\python-programming-for-real-life-networking-use\\175-basic-packet-sniffer",
+    "path": "..\\python\\udemy\\python-programming-for-real-life-networking-use\\175-basic-packet-sniffer",
     "remote": "https://github.com/atrox3d/udemy-PNPCM-175-basic-packet-sniffer.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\python-programming-for-real-life-networking-use\\207-Running-CLI-Commands-via-a-Remote-Server",
+    "path": "..\\python\\udemy\\python-programming-for-real-life-networking-use\\207-Running-CLI-Commands-via-a-Remote-Server",
     "remote": "https://github.com/atrox3d/udemy-PNPCM-207-Running-CLI-Commands-via-a-Remote-Server.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\python-three-from-beginner-to-pro",
+    "path": "..\\python\\udemy\\python-three-from-beginner-to-pro",
     "remote": "https://github.com/atrox3d/udemy-python-three-from-beginner-to-pro.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\python39",
+    "path": "..\\python\\udemy\\python39",
     "remote": "https://github.com/atrox3d/udemy-python39.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-01-geometry-game",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-01-geometry-game",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-01-geometry-game.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-02-Flatmates-Bill",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-02-Flatmates-Bill",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-02-Flatmates-Bill.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-03-Project-Math-Painting",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-03-Project-Math-Painting",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-03-Project-Math-Painting.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-04-Webcam-Photo-Sharer",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-04-Webcam-Photo-Sharer",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-04-Webcam-Photo-Sharer.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-05-Flatmates-Bill-Web-App",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-05-Flatmates-Bill-Web-App",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-05-Flatmates-Bill-Web-App.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-06-Project-Calorie-Webapp",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-06-Project-Calorie-Webapp",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-06-Project-Calorie-Webapp.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-07-Automated-Emails",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-07-Automated-Emails",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-07-Automated-Emails.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-08-Instant-Dictionary-Webapp",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-08-Instant-Dictionary-Webapp",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-08-Instant-Dictionary-Webapp.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-09-Instant-Dictionary-API",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-09-Instant-Dictionary-API",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-09-Instant-Dictionary-API.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-10-Cinema-Ticket-Booking",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-10-Cinema-Ticket-Booking",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-10-Cinema-Ticket-Booking.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\pythonprocourse\\App-11-wheather-forecast-library",
+    "path": "..\\python\\udemy\\pythonprocourse\\App-11-wheather-forecast-library",
     "remote": "https://github.com/atrox3d/udemy-pythonprocourse-App-11-wheather-forecast-library.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app-10-scraping-tours-sql",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app-10-scraping-tours-sql",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app-10-scraping-tours-sql.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app-10-scraping-tours-sql-oop",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app-10-scraping-tours-sql-oop",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app-10-scraping-tours-sql-oop.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app-11-hotel-booking",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app-11-hotel-booking",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app-11-hotel-booking.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app-5-news-api-email",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app-5-news-api-email",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app-5-news-api-email.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app-6-your-weather-api",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app-6-your-weather-api",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app-6-your-weather-api.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app-7-weather-forecast-data-app",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app-7-weather-forecast-data-app",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app-7-weather-forecast-data-app.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app-8-book-analysis",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app-8-book-analysis",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app-8-book-analysis.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app-9-email-webcam-detection",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app-9-email-webcam-detection",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app-9-email-webcam-detection.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app1-todo-list",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app1-todo-list",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-todo-list-app.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app2-portfolio",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app2-portfolio",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app2-portfolio.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app3-pdf-template",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app3-pdf-template",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app3-pdf-template.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\app4-invoice-generation",
+    "path": "..\\python\\udemy\\the-python-mega-course\\app4-invoice-generation",
     "remote": "https://github.com/atrox3d/udemy-pythonmegacourse-app4-invoice-generation.git"
   },
   {
     "name": "python_udemy",
-    "path": "C:\\Users\\nigga\\code\\python\\udemy\\the-python-mega-course\\super-mario-python",
+    "path": "..\\python\\udemy\\the-python-mega-course\\super-mario-python",
     "remote": "https://github.com/atrox3d/super-mario-python.git"
   },
   {
     "name": "reaper-update",
-    "path": "C:\\Users\\nigga\\reaper-media\\reaper-update",
+    "path": "..\\..\\reaper-media\\reaper-update",
     "remote": "https://github.com/atrox3d/reaper-media-update.git"
   },
   {
     "name": "vscode-workspace",
-    "path": "C:\\Users\\nigga\\code\\vscode",
+    "path": ".",
     "remote": "https://github.com/atrox3d/vscode.git"
   }
 ]

@@ -64,9 +64,10 @@ class Workspace:
                 except git.NotAGitRepo:
                     pass
 
-    def get_clones(self):
+    def get_clones(self, absolute=False):
         return (repo.asdict() for repo in 
-                self.get_repos(absolute=True, recurse=True))
+                self.get_repos(absolute, recurse=True)
+                if repo.remote is not None)
     
     def save_clones(self, path:str) -> None:
         with open(path, 'w') as fp:
