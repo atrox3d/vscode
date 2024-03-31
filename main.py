@@ -30,23 +30,14 @@ if __name__ == '__main__':
     for repo in get_gitrepos(ws, recurse=True):
         try:
             status = git.get_status(repo)
+            action = f'PUSH({status.commits})' if status.push else f'PULL({status.commits})' if status.pull else 'NO_ACTION'
+            dirty = f'DIRTY({len(status.added)+len(status.deleted)+len(status.modified)+len(status.untracked)})' if status.dirty else ""
             print(
                   f'{repo.name:30.30} '
                   f'{repo.get_path().stem:30.30} '
-                  f'{status.position} '
-                  f'{status.commits} '
-                  f'{status.push} '
-                  f'{status.pull} '
-                  f'{"DIRTY" if status.dirty else ""}'
+                  f'{action:{len("NO_ACTION")}.{len("NO_ACTION")}} '
+                  f'{dirty}'
                   )
         except git.GitCommandException as gce:
             print(gce)
             exit()
-    
-    # test = git.get_repo('vscode', '.')
-    # print(test)
-    # status = git.get_status(test)
-    # print(status)
-
-    # print(json.dumps(list(ws.get_clones()), indent=2))
-    # ws.save_clones('clones.json')
