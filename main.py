@@ -1,10 +1,33 @@
 import json
+from pathlib import Path
 from vscode_workspace import VsCodeWorkspace
 from atrox3d.simplegit import git
 
+def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False):
+    '''
+    return a list of GitRepo objects for each workspace folder,
+    excluding non-git repos
+
+    if recurse==True, searches recursively every git repo inside 
+    each workspace item
+
+    if absolute==True, the paths are converted to absolute paths
+    '''
+    for name, path in ws.get_configtuples():
+        path = Path(path).resolve() if absolute else Path(path)
+        if recurse:
+            for repo_git_folder in path.glob('**/.git/'):
+                yield git.get_repo(name, repo_git_folder.parent)
+        else:
+            try:
+                yield git.get_repo(name, path)
+            except git.NotAGitRepo:
+                pass
+
+
 if __name__ == '__main__':
     ws = VsCodeWorkspace('code-workspace.code-workspace')
-    for repo in ws.get_gitrepos(recurse=False):
+    for repo in get_gitrepos(ws, recurse=True):
         try:
             status = git.get_status(repo)
             print(
@@ -26,5 +49,4 @@ if __name__ == '__main__':
     # print(status)
 
     # print(json.dumps(list(ws.get_clones()), indent=2))
-    ws.save_clones('clones.json')
-    
+    # ws.save_clones('clones.json')
