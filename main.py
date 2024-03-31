@@ -30,13 +30,14 @@ def print_status(status:git.GitStatus) -> None:
     print(
             f'{repo.name:30.30} '
             f'{repo.get_path().stem:30.30} '
+            f'{status.branch:10.10}'
             f'{action:{len("NO_ACTION")}.{len("NO_ACTION")}} '
             f'{dirty}'
             )
 
 if __name__ == '__main__':
     ws = VsCodeWorkspace('code-workspace.code-workspace')
-    for repo in get_gitrepos(ws, recurse=True):
+    for repo in get_gitrepos(ws, recurse=False):
         try:
             status = git.get_status(repo)
             print_status(status)
