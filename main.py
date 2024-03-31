@@ -24,20 +24,22 @@ def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False):
             except git.NotAGitRepo:
                 pass
 
+def print_status(status:git.GitStatus) -> None:
+    action = f'PUSH({status.commits})' if status.push else f'PULL({status.commits})' if status.pull else 'NO_ACTION'
+    dirty = f'DIRTY({len(status.added)+len(status.deleted)+len(status.modified)+len(status.untracked)})' if status.dirty else ""
+    print(
+            f'{repo.name:30.30} '
+            f'{repo.get_path().stem:30.30} '
+            f'{action:{len("NO_ACTION")}.{len("NO_ACTION")}} '
+            f'{dirty}'
+            )
 
 if __name__ == '__main__':
     ws = VsCodeWorkspace('code-workspace.code-workspace')
     for repo in get_gitrepos(ws, recurse=True):
         try:
             status = git.get_status(repo)
-            action = f'PUSH({status.commits})' if status.push else f'PULL({status.commits})' if status.pull else 'NO_ACTION'
-            dirty = f'DIRTY({len(status.added)+len(status.deleted)+len(status.modified)+len(status.untracked)})' if status.dirty else ""
-            print(
-                  f'{repo.name:30.30} '
-                  f'{repo.get_path().stem:30.30} '
-                  f'{action:{len("NO_ACTION")}.{len("NO_ACTION")}} '
-                  f'{dirty}'
-                  )
+            print_status(status)
         except git.GitCommandException as gce:
             print(gce)
             exit()

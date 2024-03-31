@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from atrox3d.simplegit import git
+# from atrox3d.simplegit import git
 
 
 class VsCodeWorkspace:
