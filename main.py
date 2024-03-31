@@ -1,10 +1,10 @@
 import json
-from workspace import Workspace
+from vscode_workspace import VsCodeWorkspace
 from atrox3d.simplegit import git
 
 if __name__ == '__main__':
-    ws = Workspace('code-workspace.code-workspace')
-    for repo in ws.get_repos(recurse=False):
+    ws = VsCodeWorkspace('code-workspace.code-workspace')
+    for repo in ws.get_gitrepos(recurse=False):
         try:
             status = git.get_status(repo)
             print(
