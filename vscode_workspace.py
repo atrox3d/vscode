@@ -48,35 +48,14 @@ class VsCodeWorkspace:
                 if not Path(path).exists()]
             
     
-    def get_gitrepos(self, absolute=False, recurse=False):
-        '''
-        return a list of GitRepo objects for each workspace folder,
-        excluding non-git repos
-
-        if recurse==True, searches recursively every git repo inside 
-        each workspace item
-
-        if absolute==True, the paths are converted to absolute paths
-        '''
-        for name, path in self.get_configtuples():
-            path = Path(path).resolve() if absolute else Path(path)
-            if recurse:
-                for repo_git_folder in path.glob('**/.git/'):
-                    yield git.get_repo(name, repo_git_folder.parent)
-            else:
-                try:
-                    yield git.get_repo(name, path)
-                except git.NotAGitRepo:
-                    pass
-
-    def get_clones(self, absolute=False):
-        return (repo.asdict() for repo in 
-                self.get_gitrepos(absolute, recurse=True)
-                if repo.remote is not None)
+    # def get_clones(self, absolute=False):
+    #     return (repo.asdict() for repo in 
+    #             self.get_gitrepos(absolute, recurse=True)
+    #             if repo.remote is not None)
     
-    def save_clones(self, path:str) -> None:
-        with open(path, 'w') as fp:
-            json.dump(list(self.get_clones()), fp, indent=2)
+    # def save_clones(self, path:str) -> None:
+    #     with open(path, 'w') as fp:
+    #         json.dump(list(self.get_clones()), fp, indent=2)
     
 
 
