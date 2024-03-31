@@ -43,6 +43,11 @@ class VsCodeWorkspace:
             return (str(Path(folder).resolve()) for folder in folders)
         return folders
     
+    def get_missingpaths(self):
+        return [path for name, path in self.get_configtuples()
+                if not Path(path).exists()]
+            
+    
     def get_gitrepos(self, absolute=False, recurse=False):
         '''
         return a list of GitRepo objects for each workspace folder,
@@ -77,7 +82,8 @@ class VsCodeWorkspace:
 
 if __name__ == '__main__':
     ws = VsCodeWorkspace('code-workspace.code-workspace')
-    for method in ws.get_configitems, ws.get_configtuples, ws.get_foldernames, ws.get_folderpaths, ws.get_gitrepos:
-        print(method.__name__)
-        print(list(method()))
-        print()
+    # for method in ws.get_configitems, ws.get_configtuples, ws.get_foldernames, ws.get_folderpaths, ws.get_gitrepos:
+        # print(method.__name__)
+        # print(list(method()))
+        # print()
+    print( ws.get_missingpaths())

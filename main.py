@@ -27,3 +27,4 @@ if __name__ == '__main__':
 
     # print(json.dumps(list(ws.get_clones()), indent=2))
     ws.save_clones('clones.json')
+    
