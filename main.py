@@ -21,7 +21,7 @@ def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False):
                 yield git.get_repo(repo_git_folder.parent, name=name)
         else:
             try:
-                yield git.get_repo(path)
+                yield git.get_repo(path, name=name)
             except git.NotAGitRepo:
                 pass
 
@@ -38,7 +38,7 @@ def print_status(status:git.GitStatus) -> None:
 
 if __name__ == '__main__':
     ws = VsCodeWorkspace('code-workspace.code-workspace')
-    for repo in get_gitrepos(ws, recurse=True):
+    for repo in get_gitrepos(ws, recurse=False):
         try:
             status = git.get_status(repo)
             print_status(status)
