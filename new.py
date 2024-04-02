@@ -24,4 +24,5 @@ def main():
     print(result)
     result = git.commit('.', 'test commit', all=True)
     print(result)
+
     
