@@ -1,4 +1,4 @@
-from testmodules import test
+from new import main
 
 if __name__ == '__main__':
-    test()
+    main()
