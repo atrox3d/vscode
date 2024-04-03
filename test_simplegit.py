@@ -26,14 +26,15 @@ def main():
         result = git.pull(path)
         print(result)
 
-        result = git.add(path, all=True)
-        print(result)
+        if status.dirty:
+            result = git.add(path, all=True)
+            print(result)
 
-        result = git.commit(path, 'test commit', all=True)
-        print(result)
+            result = git.commit(path, 'test commit', all=True)
+            print(result)
 
-        result = git.push(path)
-        print(result)
+            result = git.push(path)
+            print(result)
 
     except git.GitCommandException as gce:
         print(gce)
