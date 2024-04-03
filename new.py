@@ -16,19 +16,21 @@ def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
             )
 
 def main():
-    path = '.'
-    repo = git.get_repo(path)
-    print(repo)
-    status = git.get_status(repo)
-    print(status)
+    try:
+        path = '.'
+        repo = git.get_repo(path)
+        print(repo)
+        status = git.get_status(repo)
+        print(status)
 
-    result = git.pull(path)
-    print(result)
+        result = git.pull(path)
+        print(result)
 
-    result = git.add(path, all=True)
-    print(result)
-    
-    result = git.commit(path, 'test commit', all=True)
-    print(result)
+        result = git.add(path, all=True)
+        print(result)
 
+        result = git.commit(path, 'test commit', all=True)
+        print(result)
+    except git.GitCommandException as gce:
+        print(gce)
 
