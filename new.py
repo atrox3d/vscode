@@ -16,14 +16,19 @@ def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
             )
 
 def main():
-    repo = git.get_repo('.')
+    path = '.'
+    repo = git.get_repo(path)
     print(repo)
     status = git.get_status(repo)
     print(status)
-    result = git.add('.', all=True)
-    print(result)
-    result = git.commit('.', 'test commit', all=True)
+
+    result = git.pull(path)
     print(result)
 
-
+    result = git.add(path, all=True)
+    print(result)
     
+    result = git.commit(path, 'test commit', all=True)
+    print(result)
+
+
