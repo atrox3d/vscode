@@ -35,7 +35,7 @@ def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
             f'{dirty}'
             )
 
-def test():
+def main():
     ws = VsCodeWorkspace('code-workspace.code-workspace')
     for repo in get_gitrepos(ws, recurse=False):
         try:
