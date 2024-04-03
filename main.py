@@ -1,4 +1,4 @@
-from new import main
+from test_simplegit import main
 
 if __name__ == '__main__':
     main()
