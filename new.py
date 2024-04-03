@@ -31,6 +31,10 @@ def main():
 
         result = git.commit(path, 'test commit', all=True)
         print(result)
+
+        result = git.push(path)
+        print(result)
+
     except git.GitCommandException as gce:
         print(gce)
 
