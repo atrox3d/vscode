@@ -2,6 +2,7 @@ from pathlib import Path
 
 from vscode_workspace import VsCodeWorkspace
 from atrox3d.simplegit import git
+import options
 
 def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False):
     '''
@@ -70,13 +71,20 @@ def commit(repo:git.GitRepo, status:git.GitStatus, commit_message:str, dry_run):
 
 
 def main():
-    recurse = True
+    import argparse
+    parser = options.get_parser()
+    args: argparse.Namespace = parser.parse_args()
 
-    dry_run = False
-    auto_commit = True
-    commit_message = 'automatic update'
-    push_enabled = True
-    pull_enabled = True
+    if args.all:
+        recurse = auto_commit = pull_enabled = push_enabled = True
+    else:
+        recurse = args.recurse
+        auto_commit = args.commit is not None
+        push_enabled = args.push
+        pull_enabled = args.pull
+
+    dry_run = args.dryrun
+    commit_message = 'automatic update' if args.commit is None else args.commit
 
     ws = VsCodeWorkspace('code-workspace.code-workspace')
     for repo in get_gitrepos(ws, recurse=recurse):
