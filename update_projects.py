@@ -46,7 +46,7 @@ def pull(repo:git.GitRepo, status:git.GitStatus, dry_run):
         else:
             print(f'PULL | no remote')
 
-def push(repo:git.GitRepo, status:git.GitStatus, dry_run):
+def push(repo:git.GitRepo, status:git.GitStatus, dry_run, force=False):
     if status.push:
         if repo.remote:
             if dry_run:
@@ -90,7 +90,7 @@ def main():
             if status.dirty and auto_commit:
                 commit(repo, status, commit_message, dry_run)
                 if push_enabled:
-                    push(repo, status, dry_run)
+                    push(repo, status, dry_run, force=True)
 
             if push_enabled:
                 push(repo, status, dry_run)
