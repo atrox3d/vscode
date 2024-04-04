@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 
 from vscode_workspace import VsCodeWorkspace
 from atrox3d.simplegit import git
@@ -47,10 +48,16 @@ def main():
     #     print(f'PARAM  | {k} = {v}')
 
     recurse = True
+    json_path = 'clone.json'
     ws = VsCodeWorkspace('code-workspace.code-workspace')
     clone = {}
     for repo in get_gitrepos(ws, recurse=recurse):
         if repo.remote is not None:
-            pass
+            print(f'ADDING | {repo.path}')
+            clone[repo.path] = repo.remote
         else:
             print(f'NO REMOTE | skipping | {repo.path}')
+    
+    print(clone)
+    with open(json_path, 'w') as fp:
+        json.dump(clone, fp, indent=2)
