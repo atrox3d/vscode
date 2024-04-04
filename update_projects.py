@@ -47,7 +47,7 @@ def pull(repo:git.GitRepo, status:git.GitStatus, dry_run):
             print(f'PULL | no remote')
 
 def push(repo:git.GitRepo, status:git.GitStatus, dry_run, force=False):
-    if status.push:
+    if status.push or force:
         if repo.remote:
             if dry_run:
                 print(f'DRY RUN | PUSH       | {status.branch}')
