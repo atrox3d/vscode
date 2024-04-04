@@ -3,7 +3,9 @@ from pathlib import Path
 
 from common import get_gitrepos
 from vscode_workspace import VsCodeWorkspace
-import update_options as options
+# import update_options as options
+from atrox3d.simplegit import git
+
 
 def clone(workspace_path: str, recurse: bool) -> dict:
     ws = VsCodeWorkspace(workspace_path)
@@ -63,10 +65,10 @@ def main():
     json_path = 'clone.json'
     workspace_path = 'code-workspace.code-workspace'
 
-    # cloned = clone(workspace_path, recurse)
-    # save(cloned, json_path)
+    # replicate(json_path, 'C:\\users\\username\\codetest\\vscode', True)
 
-    # cloned = load(json_path)
-    # print(json.dumps(cloned, indent=2))
-
-    replicate(json_path, 'C:\\users\\username\\codetest\\vscode', True)
+    try:
+        res = git.clone('https://github.com/atrox3d/vscode.git', dest_path=r'd:\temp\testone')
+        print(res)
+    except git.GitException as ge:
+        print(ge)
