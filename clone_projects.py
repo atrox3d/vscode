@@ -27,6 +27,27 @@ def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False):
                 pass
 
 
+def clone(workspace_path: str, recurse: bool) -> dict:
+    ws = VsCodeWorkspace(workspace_path)
+    clone = {}
+    for repo in get_gitrepos(ws, recurse=recurse):
+        if repo.remote is not None:
+            print(f'ADDING | {repo.path}')
+            clone[repo.path] = repo.remote
+        else:
+            print(f'NO REMOTE | skipping | {repo.path}')
+    
+    return clone
+
+def save(clone: dict, json_path: str):
+    with open(json_path, 'w') as fp:
+        json.dump(clone, fp, indent=2)
+
+def load(json_path: str):
+    with open(json_path) as fp:
+        clone = json.load(fp)
+    return clone
+
 
 def main():
     # import argparse
@@ -49,15 +70,11 @@ def main():
 
     recurse = True
     json_path = 'clone.json'
-    ws = VsCodeWorkspace('code-workspace.code-workspace')
-    clone = {}
-    for repo in get_gitrepos(ws, recurse=recurse):
-        if repo.remote is not None:
-            print(f'ADDING | {repo.path}')
-            clone[repo.path] = repo.remote
-        else:
-            print(f'NO REMOTE | skipping | {repo.path}')
+    workspace_path = 'code-workspace.code-workspace'
+
+    cloned = clone(workspace_path, recurse)
+    save(cloned, json_path)
     
-    print(clone)
-    with open(json_path, 'w') as fp:
-        json.dump(clone, fp, indent=2)
+    cloned = load(json_path)
+    print(json.dumps(cloned, indent=2))
+
