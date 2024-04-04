@@ -2,7 +2,7 @@ from pathlib import Path
 
 from vscode_workspace import VsCodeWorkspace
 from atrox3d.simplegit import git
-import options
+import update_options as options
 
 def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False):
     '''
