@@ -35,14 +35,48 @@ def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
             f'{dirty}'
             )
 
+def pull(repo:git.GitRepo, status:git.GitStatus, dry_run):
+    if status.pull:
+        if repo.remote:
+            if dry_run:
+                print(f'DRY RUN | PULL | {status.branch}')
+            else:
+                print(f'PULL | {status.branch}')
+                git.pull(repo.path)
+        else:
+            print(f'PULL | no remote')
+
+def push(repo:git.GitRepo, status:git.GitStatus, dry_run):
+    if status.push:
+        if repo.remote:
+            if dry_run:
+                print(f'DRY RUN | PUSH       | {status.branch}')
+            else:
+                print(f'PUSH | {status.branch}')
+                git.push(repo.path)
+        else:
+            print(f'PULL | no remote')
+
+def commit(repo:git.GitRepo, status:git.GitStatus, commit_message:str, dry_run):
+    if dry_run:
+        print(f'DRY RUN | AUTOCOMMIT | {status.branch}')
+        print(f'DRY RUN | ADD        | {status.branch}')
+        print(f'DRY RUN | COMMIT     | {status.branch} | {commit_message}')
+    else:
+        print(f'ADD | {status.branch}')
+        git.add(repo.path, all=True)
+        print(f'COMMIT     | {status.branch} | {commit_message}')
+        git.commit(repo.path, commit_message, all=True)
+
+
 def main():
     recurse = True
 
     dry_run = False
     auto_commit = True
     commit_message = 'automatic update'
-    push = True
-    pull = True
+    push_enabled = True
+    pull_enabled = True
 
     ws = VsCodeWorkspace('code-workspace.code-workspace')
     for repo in get_gitrepos(ws, recurse=recurse):
@@ -50,38 +84,16 @@ def main():
             status = git.get_status(repo)
             print_status(status, repo)
             
-            if status.pull:
-                if pull:
-                    if repo.remote:
-                        if dry_run:
-                            print(f'DRY RUN | PULL | {status.branch}')
-                        else:
-                            print(f'PULL | {status.branch}')
-                            git.pull(repo.path)
-                    else:
-                        print(f'PULL | no remote')
-
-            if status.dirty and auto_commit:
-                if dry_run:
-                    print(f'DRY RUN | AUTOCOMMIT | {status.branch}')
-                    print(f'DRY RUN | ADD        | {status.branch}')
-                    print(f'DRY RUN | COMMIT     | {status.branch} | {commit_message}')
-                else:
-                    print(f'ADD | {status.branch}')
-                    git.add(repo.path, all=True)
-                    print(f'COMMIT     | {status.branch} | {commit_message}')
-                    git.commit(repo.path, commit_message, all=True)
+            if pull_enabled:
+                pull(repo, status, dry_run)
             
-            if status.push:
-                if push:
-                    if repo.remote:
-                        if dry_run:
-                            print(f'DRY RUN | PUSH       | {status.branch}')
-                        else:
-                            print(f'PUSH | {status.branch}')
-                            git.push(repo.path)
-                    else:
-                        print(f'PULL | no remote')
+            if status.dirty and auto_commit:
+                commit(repo, status, commit_message, dry_run)
+                if push_enabled:
+                    push(repo, status, dry_run)
+
+            if push_enabled:
+                push(repo, status, dry_run)
 
         except git.GitCommandException as gce:
             print(gce)
