@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 from common import get_gitrepos
 from vscode_workspace import VsCodeWorkspace
@@ -17,13 +18,26 @@ def clone(workspace_path: str, recurse: bool) -> dict:
     return clone
 
 def save(clone: dict, json_path: str):
+    print(f'SAVING  | {json_path}')
     with open(json_path, 'w') as fp:
         json.dump(clone, fp, indent=2)
 
 def load(json_path: str):
+    print(f'LOADING | {json_path}')
     with open(json_path) as fp:
         clone = json.load(fp)
     return clone
+
+def replicate(json_path:str, base_path: str, dryrun=True):
+    clone = load(json_path)
+
+    for path, remote in clone.items():
+        # print(f'{path=} | {remote=}')
+        dest_path = (Path(base_path) / path).resolve()
+        if dryrun:
+            print(f'DRYRUN | {dest_path}')
+        else:
+            print(f'CLONE TO PATH | {dest_path}')
 
 
 def main():
@@ -49,9 +63,10 @@ def main():
     json_path = 'clone.json'
     workspace_path = 'code-workspace.code-workspace'
 
-    cloned = clone(workspace_path, recurse)
-    save(cloned, json_path)
+    # cloned = clone(workspace_path, recurse)
+    # save(cloned, json_path)
 
-    cloned = load(json_path)
-    print(json.dumps(cloned, indent=2))
+    # cloned = load(json_path)
+    # print(json.dumps(cloned, indent=2))
 
+    replicate(json_path, 'C:\\users\\username\\codetest\\vscode', True)
