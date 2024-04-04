@@ -38,7 +38,7 @@ def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
 def main():
     recurse = True
 
-    dry_run = True
+    dry_run = False
     auto_commit = True
     commit_message = 'automatic update'
     push = True
