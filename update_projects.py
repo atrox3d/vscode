@@ -39,12 +39,12 @@ def pull(repo:git.GitRepo, status:git.GitStatus, dry_run):
     if status.pull:
         if repo.remote:
             if dry_run:
-                print(f'DRY RUN | PULL | {status.branch}')
+                print(f'DRY RUN | PULL       | {status.branch}')
             else:
-                print(f'PULL | {status.branch}')
+                print(f'PULL   | {status.branch}')
                 git.pull(repo.path)
         else:
-            print(f'PULL | no remote')
+            print(f'PULL   | no remote')
 
 def push(repo:git.GitRepo, status:git.GitStatus, dry_run, force=False):
     if status.push or force:
@@ -52,10 +52,10 @@ def push(repo:git.GitRepo, status:git.GitStatus, dry_run, force=False):
             if dry_run:
                 print(f'DRY RUN | PUSH       | {status.branch}')
             else:
-                print(f'PUSH | {status.branch}')
+                print(f'PUSH   | {status.branch}')
                 git.push(repo.path)
         else:
-            print(f'PULL | no remote')
+            print(f'PUSH   | no remote')
 
 def commit(repo:git.GitRepo, status:git.GitStatus, commit_message:str, dry_run):
     if dry_run:
@@ -63,9 +63,9 @@ def commit(repo:git.GitRepo, status:git.GitStatus, commit_message:str, dry_run):
         print(f'DRY RUN | ADD        | {status.branch}')
         print(f'DRY RUN | COMMIT     | {status.branch} | {commit_message}')
     else:
-        print(f'ADD | {status.branch}')
+        print(f'ADD    | {status.branch}')
         git.add(repo.path, all=True)
-        print(f'COMMIT     | {status.branch} | {commit_message}')
+        print(f'COMMIT | {status.branch} | {commit_message}')
         git.commit(repo.path, commit_message, all=True)
 
 
