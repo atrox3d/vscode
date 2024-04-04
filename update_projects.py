@@ -36,11 +36,51 @@ def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
             )
 
 def main():
+    recurse = True
+
+    dry_run = True
+    auto_commit = True
+    commit_message = 'automatic update'
+    push = True
+    pull = True
+
     ws = VsCodeWorkspace('code-workspace.code-workspace')
-    for repo in get_gitrepos(ws, recurse=False):
+    for repo in get_gitrepos(ws, recurse=recurse):
         try:
             status = git.get_status(repo)
             print_status(status, repo)
+            
+            if status.pull:
+                if pull:
+                    if repo.remote:
+                        if dry_run:
+                            print(f'DRY RUN | PULL | {status.branch}')
+                        else:
+                            git.pull(repo.path)
+                    else:
+                        print(f'PULL | no remote')
+
+            if status.dirty and auto_commit:
+                if dry_run:
+                    print(f'DRY RUN | AUTOCOMMIT | {status.branch}')
+                    print(f'DRY RUN | ADD        | {status.branch}')
+                    print(f'DRY RUN | COMMIT     | {status.branch} | {commit_message}')
+                else:
+                    print(f'ADD | {status.branch}')
+                    git.add(repo.path, all=True)
+                    print(f'COMMIT     | {status.branch} | {commit_message}')
+                    git.commit(repo.path, commit_message, all=True)
+            
+            if status.push:
+                if push:
+                    if repo.remote:
+                        if dry_run:
+                            print(f'DRY RUN | PUSH       | {status.branch}')
+                        else:
+                            git.push(repo.path)
+                    else:
+                        print(f'PULL | no remote')
+
         except git.GitCommandException as gce:
             print(gce)
             exit()
