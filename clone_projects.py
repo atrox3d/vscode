@@ -30,17 +30,25 @@ def load(json_path: str):
         clone = json.load(fp)
     return clone
 
-def replicate(json_path:str, base_path: str, dryrun=True):
+def replicate(json_path:str, base_path: str, dryrun=True, break_on_error=True):
     clone = load(json_path)
 
+    # if not Path(base_path).exists():
+        # raise FileNotFoundError(f'PATH NOT FOUND: {base_path}')
+    
     for path, remote in clone.items():
-        # print(f'{path=} | {remote=}')
         dest_path = (Path(base_path) / path).resolve()
         if dryrun:
             print(f'DRYRUN | {dest_path}')
         else:
             print(f'CLONE TO PATH | {dest_path}')
-
+            try:
+                output = git.clone(remote, dest_path)
+                print(output)
+            except git.GitException as ge:
+                print(ge)
+                if break_on_error:
+                    return
 
 def main():
     # import argparse
@@ -65,10 +73,5 @@ def main():
     json_path = 'clone.json'
     workspace_path = 'code-workspace.code-workspace'
 
-    # replicate(json_path, 'C:\\users\\username\\codetest\\vscode', True)
+    replicate(json_path, 'D:\\users\\username\\codetest\\vscode', dryrun=False, break_on_error=True)
 
-    try:
-        output = git.clone('https://github.com/atrox3d/vscode.git', dest_path=r'd:\temp\testone')
-        print(output)
-    except git.GitException as ge:
-        print(ge)
