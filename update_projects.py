@@ -56,6 +56,7 @@ def main():
                         if dry_run:
                             print(f'DRY RUN | PULL | {status.branch}')
                         else:
+                            print(f'PULL | {status.branch}')
                             git.pull(repo.path)
                     else:
                         print(f'PULL | no remote')
@@ -77,6 +78,7 @@ def main():
                         if dry_run:
                             print(f'DRY RUN | PUSH       | {status.branch}')
                         else:
+                            print(f'PUSH | {status.branch}')
                             git.push(repo.path)
                     else:
                         print(f'PULL | no remote')
