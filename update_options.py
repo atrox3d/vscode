@@ -13,7 +13,8 @@ def get_parser():
     parser.add_argument('-P', '--push', action='store_true', default=False)
     parser.add_argument('-d', '--dryrun', action='store_true', default=False)
     parser.add_argument('-r', '--recurse', action='store_true', default=False)
-    parser.add_argument('-c', '--commit', default=None)
+    parser.add_argument('-c', '--commit')
+    parser.add_argument('-w', '--workspace')
 
     return parser
 

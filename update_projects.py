@@ -86,6 +86,9 @@ def main():
     dry_run = args.dryrun
     commit_message = 'automatic update' if args.commit is None else args.commit
 
+    for k, v in vars(args).items():
+        print(f'PARAM  | {k} = {v}')
+
     ws = VsCodeWorkspace('code-workspace.code-workspace')
     for repo in get_gitrepos(ws, recurse=recurse):
         try:
