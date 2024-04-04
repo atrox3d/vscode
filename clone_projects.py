@@ -68,7 +68,7 @@ def main():
     # replicate(json_path, 'C:\\users\\username\\codetest\\vscode', True)
 
     try:
-        res = git.clone('https://github.com/atrox3d/vscode.git', dest_path=r'd:\temp\testone')
-        print(res)
+        output = git.clone('https://github.com/atrox3d/vscode.git', dest_path=r'd:\temp\testone')
+        print(output)
     except git.GitException as ge:
         print(ge)

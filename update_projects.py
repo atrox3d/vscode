@@ -24,7 +24,7 @@ def pull(repo:git.GitRepo, status:git.GitStatus, dry_run):
                 print(f'DRY RUN | PULL       | {status.branch}')
             else:
                 print(f'PULL   | {status.branch}')
-                git.pull(repo.path)
+                output = git.pull(repo.path)
         else:
             print(f'PULL   | no remote')
 
@@ -35,7 +35,7 @@ def push(repo:git.GitRepo, status:git.GitStatus, dry_run, force=False):
                 print(f'DRY RUN | PUSH       | {status.branch}')
             else:
                 print(f'PUSH   | {status.branch}')
-                git.push(repo.path)
+                output = git.push(repo.path)
         else:
             print(f'PUSH   | no remote')
 
@@ -46,9 +46,9 @@ def commit(repo:git.GitRepo, status:git.GitStatus, commit_message:str, dry_run):
         print(f'DRY RUN | COMMIT     | {status.branch} | {commit_message}')
     else:
         print(f'ADD    | {status.branch}')
-        git.add(repo.path, all=True)
+        output = git.add(repo.path, all=True)
         print(f'COMMIT | {status.branch} | {commit_message}')
-        git.commit(repo.path, commit_message, all=True)
+        output = git.commit(repo.path, commit_message, all=True)
 
 
 def main():
