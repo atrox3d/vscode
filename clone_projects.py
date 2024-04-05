@@ -30,7 +30,7 @@ def load(json_path: str):
         clone = json.load(fp)
     return clone
 
-def replicate(json_path:str, base_path: str, dryrun=True, break_on_error=True):
+def replicate(json_path:str, base_path: str, dryrun=True, breakonerrors=True):
     clone = load(json_path)
 
     # if not Path(base_path).exists():
@@ -47,7 +47,7 @@ def replicate(json_path:str, base_path: str, dryrun=True, break_on_error=True):
                 print(output)
             except git.GitException as ge:
                 print(ge)
-                if break_on_error:
+                if breakonerrors:
                     return
 
 def main():
@@ -62,9 +62,9 @@ def main():
     json_path = args.json
     workspace_path = args.workspace
     dryrun = args.dryrun
-    break_on_error =  args.breakonerrors
+    breakonerrors =  args.breakonerrors
 
 
     replicate(json_path, 'D:\\users2\\username\\codetest\\vscode', 
-              dryrun=dryrun, break_on_error=break_on_error)
+              dryrun=dryrun, breakonerrors=breakonerrors)
 
