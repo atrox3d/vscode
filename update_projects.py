@@ -2,7 +2,7 @@ from pathlib import Path
 
 from vscode_workspace import VsCodeWorkspace
 from atrox3d.simplegit import git
-import update_options as options
+import options as options
 from common import get_gitrepos
 
 
@@ -53,7 +53,7 @@ def commit(repo:git.GitRepo, status:git.GitStatus, commit_message:str, dry_run):
 
 def main():
     import argparse
-    parser = options.get_parser()
+    parser = options.get_update_parser()
     args: argparse.Namespace = parser.parse_args()
 
     if args.all:

@@ -2,7 +2,7 @@ import argparse
 # import sys
 
 
-def get_parser():
+def get_update_parser():
     # create parser
     parser = argparse.ArgumentParser(
         description="test parser"
@@ -20,7 +20,7 @@ def get_parser():
 
 
 if __name__ == '__main__':
-    parser = get_parser()
+    parser = get_update_parser()
 
     args: argparse.Namespace = parser.parse_args()
 
