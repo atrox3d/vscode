@@ -3,7 +3,7 @@ from pathlib import Path
 
 from common import get_gitrepos
 from vscode_workspace import VsCodeWorkspace
-# import update_options as options
+import options
 from atrox3d.simplegit import git
 
 
@@ -51,27 +51,20 @@ def replicate(json_path:str, base_path: str, dryrun=True, break_on_error=True):
                     return
 
 def main():
-    # import argparse
-    # parser = options.get_parser()
-    # args: argparse.Namespace = parser.parse_args()
+    import argparse
+    parser = options.get_clone_parser()
+    args: argparse.Namespace = parser.parse_args()
 
-    # if args.all:
-    #     recurse = auto_commit = pull_enabled = push_enabled = True
-    # else:
-    #     recurse = args.recurse
-    #     auto_commit = args.commit is not None
-    #     push_enabled = args.push
-    #     pull_enabled = args.pull
+    for k, v in vars(args).items():
+        print(f'PARAM  | {k} = {v}')
 
-    # dry_run = args.dryrun
-    # commit_message = 'automatic update' if args.commit is None else args.commit
+    recurse = args.recurse
+    json_path = args.json
+    workspace_path = args.workspace
+    dryrun = args.dryrun
+    break_on_error =  args.breakonerrors
 
-    # for k, v in vars(args).items():
-    #     print(f'PARAM  | {k} = {v}')
 
-    recurse = True
-    json_path = 'clone.json'
-    workspace_path = 'code-workspace.code-workspace'
-
-    replicate(json_path, 'D:\\users\\username\\codetest\\vscode', dryrun=False, break_on_error=True)
+    replicate(json_path, 'D:\\users2\\username\\codetest\\vscode', 
+              dryrun=dryrun, break_on_error=break_on_error)
 
