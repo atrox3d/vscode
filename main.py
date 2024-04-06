@@ -6,5 +6,8 @@ import update_projects
 import clone_projects
 
 if __name__ == '__main__':
-    sys.exit(clone_projects.main())
+    sys.exit(
+        # clone_projects.main()
+        update_projects.main()
+        )
 

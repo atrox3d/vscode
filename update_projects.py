@@ -7,8 +7,10 @@ from common import get_gitrepos
 
 
 def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
-    action = f'PUSH({status.commits})' if status.push else f'PULL({status.commits})' if status.pull else 'NO_ACTION'
-    dirty = f'DIRTY({len(status.added)+len(status.deleted)+len(status.modified)+len(status.untracked)})' if status.dirty else ""
+    action = f'PUSH({status.commits})' if status.need_push \
+             else f'PULL({status.commits})' if status.need_pull \
+             else 'NO_ACTION'
+    dirty = f'DIRTY({status.total()})' if status.dirty else ""
     print(
             f'{repo.name:25.25} '
             f'{repo.path:50.50} '
@@ -18,7 +20,7 @@ def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
             )
 
 def pull(repo:git.GitRepo, status:git.GitStatus, dry_run):
-    if status.pull:
+    if status.need_pull:
         if repo.remote:
             if dry_run:
                 print(f'DRY RUN | PULL       | {status.branch}')
@@ -29,7 +31,7 @@ def pull(repo:git.GitRepo, status:git.GitStatus, dry_run):
             print(f'PULL   | no remote')
 
 def push(repo:git.GitRepo, status:git.GitStatus, dry_run, force=False):
-    if status.push or force:
+    if status.need_push or force:
         if repo.remote:
             if dry_run:
                 print(f'DRY RUN | PUSH       | {status.branch}')
