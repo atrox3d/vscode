@@ -50,7 +50,7 @@ def commit(repo:git.GitRepo, status:git.GitStatus, commit_message:str, dry_run):
         print(f'ADD    | {status.branch}')
         output = git.add(repo.path, all=True)
         print(f'COMMIT | {status.branch} | {commit_message}')
-        output = git.commit(repo.path, commit_message, all=True)
+        output = git.commit(repo.path, commit_message, add_all=True)
 
 
 def main():

@@ -7,7 +7,7 @@ import clone_projects
 
 if __name__ == '__main__':
     sys.exit(
-        clone_projects.main()
-        # update_projects.main()
+        # clone_projects.main()
+        update_projects.main()
         )
 
