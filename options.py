@@ -24,19 +24,30 @@ def get_clone_parser():
         description="test parser"
     )
 
-    parser.add_argument('-d', '--dryrun', action='store_true', default=True)
-    parser.add_argument('-r', '--recurse', action='store_true', default=True)
-    parser.add_argument('-b', '--breakonerrors', action='store_true', default=True)
-    parser.add_argument('-w', '--workspace', required=True)
-    parser.add_argument('-j', '--json', required=True)
+    parser.add_argument('-d', '--dryrun', action='store_true', default=False)
+    
+    subparsers = parser.add_subparsers(
+                                        dest='command', 
+                                        help='Commands to run', 
+                                        # required=True
+                                        )
+
+    backup = subparsers.add_parser('backup')
+    backup.add_argument('-r', '--recurse', action='store_true', default=False)
+    # parser.add_argument('-w', '--workspace', required=True)
+
+    restore = subparsers.add_parser('restore')
+    # parser.add_argument('-b', '--breakonerrors', action='store_true', default=True)
+    # parser.add_argument('-j', '--json', required=True)
 
     return parser
 
 
 if __name__ == '__main__':
-    parser = get_update_parser()
+    parser = get_clone_parser()
 
     args: argparse.Namespace = parser.parse_args()
 
+    print(f'{args = }')
     for k, v in vars(args).items():
         print(f'{k} = {v}')

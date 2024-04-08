@@ -7,35 +7,37 @@ import options
 from atrox3d.simplegit import git
 
 
-def clone(workspace_path: str, recurse: bool) -> dict:
+def collect_repos(workspace_path: str, recurse: bool) -> dict:
     ws = VsCodeWorkspace(workspace_path)
-    clone = {}
+    repos = {}
     for repo in get_gitrepos(ws, recurse=recurse):
         if repo.remote is not None:
             print(f'ADDING | {repo.path}')
-            clone[repo.path] = repo.remote
+            repos[repo.path] = repo.remote
         else:
             print(f'NO REMOTE | skipping | {repo.path}')
     
-    return clone
+    return repos
 
-def save(clone: dict, json_path: str):
+def save_repos(repos: dict, json_path: str):
     print(f'SAVING  | {json_path}')
     with open(json_path, 'w') as fp:
-        json.dump(clone, fp, indent=2)
+        json.dump(repos, fp, indent=2)
 
-def load(json_path: str):
+def load_repos(json_path: str):
     print(f'LOADING | {json_path}')
     with open(json_path) as fp:
-        clone = json.load(fp)
-    return clone
+        repos = json.load(fp)
+    return repos
 
-def replicate(json_path:str, base_path: str, dryrun=True, breakonerrors=True):
-    clone = load(json_path)
+def backup_repos(workspace_path: str, json_path:str, recurse: bool):
+    clone = collect_repos(workspace_path, recurse)
+    save_repos(clone, json_path)
 
-    # if not Path(base_path).exists():
-        # raise FileNotFoundError(f'PATH NOT FOUND: {base_path}')
-    
+
+def restore_repos(json_path:str, base_path: str, dryrun=True, breakonerrors=True):
+    clone = load_repos(json_path)
+
     for path, remote in clone.items():
         dest_path = (Path(base_path) / path).resolve()
         if dryrun:
@@ -65,6 +67,6 @@ def main():
     breakonerrors =  args.breakonerrors
 
 
-    replicate(json_path, 'D:\\users2\\username\\codetest\\vscode', 
+    restore_repos(json_path, 'D:\\users2\\username\\codetest\\vscode', 
               dryrun=dryrun, breakonerrors=breakonerrors)
 
