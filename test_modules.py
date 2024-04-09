@@ -25,8 +25,8 @@ def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False):
                 pass
 
 def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
-    action = f'PUSH({status.commits})' if status.push else f'PULL({status.commits})' if status.pull else 'NO_ACTION'
-    dirty = f'DIRTY({len(status.added)+len(status.deleted)+len(status.modified)+len(status.untracked)})' if status.dirty else ""
+    action = f'PUSH({status.commits})' if status.need_push else f'PULL({status.commits})' if status.need_pull else 'NO_ACTION'
+    dirty = f'DIRTY({status.total()})' if status.dirty else ""
     print(
             f'{repo.name:25.25} '
             f'{repo.path:50.50} '

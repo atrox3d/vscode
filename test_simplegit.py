@@ -30,7 +30,7 @@ def main():
             result = git.add(path, all=True)
             print(result)
 
-            result = git.commit(path, 'test commit', all=True)
+            result = git.commit(path, 'test commit', add_all=True)
             print(result)
 
             result = git.push(path)

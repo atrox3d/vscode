@@ -29,16 +29,18 @@ def get_clone_parser():
     subparsers = parser.add_subparsers(
                                         dest='command', 
                                         help='Commands to run', 
-                                        # required=True
+                                        required=True
                                         )
 
     backup = subparsers.add_parser('backup')
+    backup.add_argument('-w', '--workspace', required=True)
+    backup.add_argument('-j', '--json', required=True)
     backup.add_argument('-r', '--recurse', action='store_true', default=False)
-    # parser.add_argument('-w', '--workspace', required=True)
 
     restore = subparsers.add_parser('restore')
-    # parser.add_argument('-b', '--breakonerrors', action='store_true', default=True)
-    # parser.add_argument('-j', '--json', required=True)
+    restore.add_argument('-j', '--json', required=True)
+    restore.add_argument('-d', '--destpath', required=True)
+    restore.add_argument('-b', '--breakonerrors', action='store_true', default=True)
 
     return parser
 

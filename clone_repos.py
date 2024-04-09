@@ -60,13 +60,17 @@ def main():
     for k, v in vars(args).items():
         print(f'PARAM  | {k} = {v}')
 
-    recurse = args.recurse
-    json_path = args.json
-    workspace_path = args.workspace
-    dryrun = args.dryrun
-    breakonerrors =  args.breakonerrors
+    if args.command == 'backup':
+        backup_repos(args.workspace, args.json, args.recurse)
+    elif args.command == 'restore':
+        restore_repos(args.json, args.destpath, args.dryrun, args.breakonerrors)
+    else:
+        pass
+    # recurse = args.recurse
+    # json_path = args.json
+    # workspace_path = args.workspace
+    # dryrun = args.dryrun
+    # breakonerrors =  args.breakonerrors
 
 
-    restore_repos(json_path, 'D:\\users2\\username\\codetest\\vscode', 
-              dryrun=dryrun, breakonerrors=breakonerrors)
 
