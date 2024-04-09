@@ -8,34 +8,23 @@ import clone_repos
 
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser(
-        description="main parser"
-    )
+    parser = argparse.ArgumentParser(description="main parser")
     choices = {
         'update': update_projects,
         'clone': clone_repos,
         'simplegit': test_simplegit,
         'modules': test_modules
     }
-    parser.add_argument(
-                        'choice',
-                        # nargs='?',
-                        choices=choices.keys()
-                        )
-    
-    parser.add_argument('rest', nargs='*')
+    parser.add_argument('choice',choices=choices.keys())
 
+    # parse just 1st arg, leave the rest for the chosen module
+    parser.add_argument('rest', nargs='*')
     args, other = parser.parse_known_args()
+    sys.argv.pop(1)
 
     print(f'{args = }')
     for k, v in vars(args).items():
         print(f'{k} = {v}')
     
-    print(sys.argv)
-    sys.argv.pop(1)
-    print(sys.argv)
-    sys.exit(
-        choices[args.choice].main()
-        # update_projects.main()
-        )
+    sys.exit(choices[args.choice].main())
 

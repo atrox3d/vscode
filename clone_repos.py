@@ -65,12 +65,8 @@ def main():
     elif args.command == 'restore':
         restore_repos(args.json, args.destpath, args.dryrun, args.breakonerrors)
     else:
-        pass
-    # recurse = args.recurse
-    # json_path = args.json
-    # workspace_path = args.workspace
-    # dryrun = args.dryrun
-    # breakonerrors =  args.breakonerrors
+        # this should never run, because argparse takes care of it
+        raise ValueError(f'uknown subcommand {args.command!r}')
 
 
 
