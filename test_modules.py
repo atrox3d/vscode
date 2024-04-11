@@ -37,6 +37,17 @@ def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
 
 def main():
     ws = VsCodeWorkspace('code-workspace.code-workspace')
+    header = (
+            f'{"name":25.25} '
+            f'{"path":50.50} '
+            f'{"branch":10.10}'
+            f'{"action":{len("NO_ACTION")}.{len("NO_ACTION")}} '
+            f'{"dirty"}'
+    ).upper()
+    print('_' * len(header))
+    print('LIST OF WORKSPACE REPOS AND THEIR STATUS')
+    print(header)
+    print('_' * len(header))
     for repo in get_gitrepos(ws, recurse=False):
         try:
             status = git.get_status(repo)
