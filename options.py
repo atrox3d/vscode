@@ -24,7 +24,7 @@ def get_clone_parser():
         description="test parser"
     )
 
-    parser.add_argument('-d', '--dryrun', action='store_true', default=False)
+    parser.add_argument('-d', '--dryrun', action='store_false', default=True)
     
     subparsers = parser.add_subparsers(
                                         dest='command', 
@@ -40,7 +40,8 @@ def get_clone_parser():
     restore = subparsers.add_parser('restore')
     restore.add_argument('-j', '--json', required=True)
     restore.add_argument('-d', '--destpath', required=True)
-    restore.add_argument('-b', '--breakonerrors', action='store_true', default=True)
+    restore.add_argument('-b', '--breakonerrors', action='store_true', 
+                         default=True, help='recurse')
 
     return parser
 

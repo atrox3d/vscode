@@ -8,11 +8,11 @@ import clone_repos
 
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser(description="main parser")
+    parser = argparse.ArgumentParser(description="main parser", add_help=False)
     choices = {
         'update': update_projects,
         'clone': clone_repos,
-        'simplegit': test_simplegit,
+        # 'simplegit': test_simplegit,
         'modules': test_modules
     }
     parser.add_argument('choice',choices=choices.keys(), nargs='?')
