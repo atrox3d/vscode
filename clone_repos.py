@@ -34,24 +34,6 @@ def backup_repos(workspace_path: str, json_path:str, recurse: bool):
     clone = collect_repos(workspace_path, recurse)
     save_repos(clone, json_path)
 
-
-# def restore_repos(json_path:str, base_path: str, dryrun=True, breakonerrors=True):
-#     clone = load_repos(json_path)
-
-#     for path, remote in clone.items():
-#         dest_path = (Path(base_path) / path).resolve()
-#         if dryrun:
-#             print(f'DRYRUN | {dest_path}')
-#         else:
-#             print(f'CLONE TO PATH | {dest_path}')
-#             try:
-#                 output = git.clone(remote, dest_path)
-#                 print(output)
-#             except git.GitException as ge:
-#                 print(ge)
-#                 if breakonerrors:
-#                     return
-
 def main():
     import argparse
     parser = options.get_clone_parser()
