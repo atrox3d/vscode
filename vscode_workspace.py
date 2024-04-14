@@ -1,8 +1,6 @@
 import json
 from pathlib import Path
 
-# from atrox3d.simplegit import git
-
 
 class VsCodeWorkspace:
     def __init__(self, workspace_config_path:str) -> None:
@@ -46,17 +44,6 @@ class VsCodeWorkspace:
     def get_missingpaths(self):
         return [path for name, path in self.get_configtuples()
                 if not Path(path).exists()]
-            
-    
-    # def get_clones(self, absolute=False):
-    #     return (repo.asdict() for repo in 
-    #             self.get_gitrepos(absolute, recurse=True)
-    #             if repo.remote is not None)
-    
-    # def save_clones(self, path:str) -> None:
-    #     with open(path, 'w') as fp:
-    #         json.dump(list(self.get_clones()), fp, indent=2)
-    
 
 
 if __name__ == '__main__':
