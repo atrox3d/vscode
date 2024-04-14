@@ -1,10 +1,11 @@
 from pathlib import Path
+from typing import Generator
 
 from vscode_workspace import VsCodeWorkspace
 from atrox3d.simplegit import git
 
 
-def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False):
+def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False) -> Generator[git.GitRepo, None, None]:
     '''
     return a list of GitRepo objects for each workspace folder,
     excluding non-git repos
