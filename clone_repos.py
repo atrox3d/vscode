@@ -4,8 +4,8 @@ import json
 from common import get_gitrepos
 from vscode_workspace import VsCodeWorkspace
 import options
-import atrox3d.simplegit as git
-
+# import atrox3d.simplegit as git
+from atrox3d.simplegit import git, repos
 
 def collect_repos(workspace_path: str, recurse: bool) -> dict:
     ws = VsCodeWorkspace(workspace_path)
@@ -63,7 +63,7 @@ def main():
     if args.command == 'backup':
         backup_repos(args.workspace, args.json, args.recurse)
     elif args.command == 'restore':
-        git.repos.restore(args.json, args.destpath, args.dryrun, args.breakonerrors)
+        repos.restore(args.json, args.destpath, args.dryrun, args.breakonerrors)
     else:
         # this should never run, because argparse takes care of it
         raise ValueError(f'uknown subcommand {args.command!r}')
