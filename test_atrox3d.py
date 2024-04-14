@@ -1,6 +1,7 @@
-import atrox3d.simplegit as git
+from atrox3d.simplegit import git, repos
 
-repos = git.repos.load('repos.json')
-print(repos)
+projects = repos.load('repos.json')
+print(projects)
 
-git.repos.restore('repos.json', r'd:\\test\\test\\test\\test')
+repos.restore('repos.json', r'd:\\test\\test\\test\\test')
+
