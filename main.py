@@ -12,7 +12,7 @@ if __name__ == '__main__':
     choices = {
         'update': update_projects,
         'clone': clone_repos,
-        # 'simplegit': test_simplegit,
+        'simplegit': test_simplegit,
         'modules': test_modules
     }
     parser.add_argument('choice',choices=choices.keys(), nargs='?')
