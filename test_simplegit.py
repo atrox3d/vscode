@@ -41,7 +41,7 @@ def main():
         status = git.get_status(repo)
         print(status)
 
-        if args.pull or args.all:
+        if status.need_pull and (args.pull or args.all):
             print(f'PULLING FROM {repo.remote}')
             result = git.pull(path)
             print(result)
