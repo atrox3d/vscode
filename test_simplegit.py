@@ -9,7 +9,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('-a', '--add', action='store_true', default=False)
-    parser.add_argument('-c', '--commit', nargs=1)
+    parser.add_argument('-c', '--commit')
     parser.add_argument('-p', '--pull', action='store_true', default=False)
     parser.add_argument('-P', '--push', action='store_true', default=False)
     parser.add_argument('-A', '--all', action='store_true', default=False)
@@ -33,7 +33,7 @@ def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
 def main():
     args = parse_args()
     print(args)
-    
+
     try:
         print(f'GETTIG REPO FROM "."')
         path = '.'
