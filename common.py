@@ -23,5 +23,5 @@ def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False) -> Generator
         else:
             try:
                 yield git.get_repo(path, name=name)
-            except git.NotAGitRepo:
+            except git.GitNotARepoException:
                 pass

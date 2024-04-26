@@ -33,6 +33,6 @@ def main():
         try:
             status = git.get_status(repo)
             print_status(status, repo)
-        except git.GitCommandException as gce:
-            print(gce)
+        except git.GitStatusException as gse:
+            print(gse)
             exit()

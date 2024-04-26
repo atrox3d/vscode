@@ -70,8 +70,8 @@ def main():
             else:
                 print(f'SKIPPING PUSH')
 
-    except git.GitCommandException as gce:
-        print(gce)
+    except git.GitException as ge:
+        print(ge)
 
         
 

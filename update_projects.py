@@ -89,6 +89,6 @@ def main():
             if push_enabled:
                 push(repo, status, dry_run)
 
-        except git.GitCommandException as gce:
-            print(gce)
+        except git.GitException as ge:
+            print(ge)
             exit()
