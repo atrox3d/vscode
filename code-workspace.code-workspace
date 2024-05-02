@@ -17,16 +17,16 @@
 			"path": "../python/online-tutorials/arjancodes"
 		},
 		{
-			"name": "packaging-your-python-code-with-project.toml",
-			"path": "../python/online-tutorials/realpython/packaging-your-python-code-with-project.toml"
-		},
-		{
 			"name": "atrox3d-package",
 			"path": "../python/online-tutorials/atrox3d-package"
 		},
 		{
 			"name": "atrox3d-project",
 			"path": "../python/my-projects/atrox3d-project"
+		},
+		{
+			"name": "realpython",
+			"path": "../python/online-tutorials/realpython"
 		},
 		{
 			"name": "james-powell",
