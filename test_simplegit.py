@@ -74,7 +74,7 @@ def main():
                 print(f'SKIPPING PUSH')
 
     except git.GitException as ge:
-        print(ge)
+        ge.print()
 
         
 
