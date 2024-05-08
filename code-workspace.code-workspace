@@ -21,8 +21,8 @@
 			"path": "../python/online-tutorials/atrox3d-package"
 		},
 		{
-			"name": "atrox3d-project",
-			"path": "../python/my-projects/atrox3d-project"
+			"name": "my-projects",
+			"path": "../python/my-projects"
 		},
 		{
 			"name": "realpython",
