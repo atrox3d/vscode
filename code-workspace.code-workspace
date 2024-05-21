@@ -70,6 +70,7 @@
 		}
 	],
 	"settings": {
-		"todo-tree.tree.scanMode": "workspace"
+		"todo-tree.tree.scanMode": "workspace",
+		"workbench.panel.defaultLocation": "right"
 	}
 }
