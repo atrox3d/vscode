@@ -13,6 +13,8 @@ def get_update_parser():
     parser.add_argument('-P', '--push', action='store_true', default=False)
     parser.add_argument('-d', '--dryrun', action='store_true', default=False)
     parser.add_argument('-r', '--recurse', action='store_true', default=False)
+    parser.add_argument('-s', '--skipclean', action='store_true', default=False)
+    parser.add_argument('-l', '--listrepos', action='store_true', default=False)
     parser.add_argument('-c', '--commit')
     parser.add_argument('-w', '--workspace')
 

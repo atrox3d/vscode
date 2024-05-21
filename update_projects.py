@@ -5,6 +5,11 @@ from atrox3d.simplegit import git
 import options as options
 from common import get_gitrepos
 
+def print_repo(repo:git.GitRepo):
+    print(
+            f'{repo.name:25.25} '
+            f'{repo.path:50.50} '
+    )
 
 def print_status(status:git.GitStatus, repo:git.GitRepo) -> None:
     action = f'PUSH({status.commits})' if status.need_push \
@@ -74,8 +79,13 @@ def main():
 
     ws = VsCodeWorkspace('code-workspace.code-workspace')
     for repo in get_gitrepos(ws, recurse=recurse):
+        if args.listrepos:
+            print_repo(repo)
+            continue
         try:
             status = git.get_status(repo)
+            if not status.dirty and args.skipclean:
+                continue
             print_status(status, repo)
             
             if pull_enabled:
