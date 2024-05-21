@@ -57,6 +57,18 @@ def commit(repo:git.GitRepo, status:git.GitStatus, commit_message:str, dry_run):
         print(f'COMMIT | {status.branch} | {commit_message}')
         output = git.commit(repo.path, commit_message, add_all=True)
 
+def grep(path:str, terms:list[str]) -> bool:
+    if not terms:
+        return True
+    for term in terms:
+        if term in path:
+            return True
+    return False
+
+def exclude(path:str, terms:list[str]) -> bool:
+    if not terms:
+        return False
+    return grep(path, terms)
 
 def main():
     import argparse
@@ -79,6 +91,11 @@ def main():
 
     ws = VsCodeWorkspace('code-workspace.code-workspace')
     for repo in get_gitrepos(ws, recurse=recurse):
+        if not grep(repo.path, args.grep):
+            continue
+        if exclude(repo.path, args.exclude):
+            continue
+
         if args.listrepos:
             print_repo(repo)
             continue

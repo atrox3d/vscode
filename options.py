@@ -17,6 +17,10 @@ def get_update_parser():
     parser.add_argument('-l', '--listrepos', action='store_true', default=False)
     parser.add_argument('-c', '--commit')
     parser.add_argument('-w', '--workspace')
+    parser.add_argument('-g', '--grep', action='extend', nargs='+', type=str, default=[],
+                        help='include only repos containig one of the strings')
+    parser.add_argument('-e', '--exclude', action='extend', nargs='+', type=str, default=[],
+                        help='exclude repos containig one of the strings')
 
     return parser
 
