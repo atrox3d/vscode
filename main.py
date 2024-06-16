@@ -1,5 +1,6 @@
 import sys
 import argparse
+from atrox3d.logger import logmanager
 
 import test_simplegit
 import test_modules
@@ -7,6 +8,7 @@ import update_projects
 import clone_repos
 
 if __name__ == '__main__':
+    logmanager.setup_logging()
 
     parser = argparse.ArgumentParser(description="main parser", add_help=False)
     choices = {
@@ -19,6 +21,8 @@ if __name__ == '__main__':
 
     # parse just 1st arg, leave the rest for the chosen module
     parser.add_argument('rest', nargs='*')
+    # args, other = parser.parse_known_args()
+    sys.argv.extend('clone restore -d -j macbook.json -p .'.split())
     args, other = parser.parse_known_args()
     
     if args.choice is not None:
