@@ -1,9 +1,11 @@
 from pathlib import Path
 from typing import Generator
+import logging
 
 from vscode_workspace import VsCodeWorkspace
 from atrox3d.simplegit import git
 
+logger = logging.getLogger(__name__)
 
 def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False) -> Generator[git.GitRepo, None, None]:
     '''
@@ -16,7 +18,8 @@ def get_gitrepos(ws:VsCodeWorkspace, absolute=False, recurse=False) -> Generator
     if absolute==True, the paths are converted to absolute paths
     '''
     for name, path in ws.get_configtuples():
-        path = Path(path).resolve() if absolute else Path(path)
+        path = Path(path).resolve() if absolute else Path(Path(path).as_posix())
+        logger.debug(f'get_gitrepos: {path=}')
         if recurse:
             for repo_git_folder in path.glob('**/.git/'):
                 yield git.get_repo(repo_git_folder.parent, name=name)
