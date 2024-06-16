@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # parse just 1st arg, leave the rest for the chosen module
     parser.add_argument('rest', nargs='*')
     # args, other = parser.parse_known_args()
-    sys.argv.extend('clone restore -d -j macbook.json -p .'.split())
+    # sys.argv.extend('clone restore -d -j macbook.json -p .'.split())
     args, other = parser.parse_known_args()
     
     if args.choice is not None:
