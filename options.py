@@ -47,7 +47,7 @@ def get_clone_parser():
     restore.add_argument('-j', '--json', required=True)
     restore.add_argument('-p', '--destpath', required=True)
     restore.add_argument('-b', '--breakonerrors', action='store_true', 
-                         default=True, help='recurse')
+                         default=False, help='break on errors if specified')
 
     return parser
 
