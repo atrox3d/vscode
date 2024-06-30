@@ -67,6 +67,9 @@
 		{
 			"name": "vscode-workspace",
 			"path": "."
+		},
+		{
+			"path": "../python/online-tutorials/mcoding/itertools_combinatorics"
 		}
 	],
 	"settings": {
