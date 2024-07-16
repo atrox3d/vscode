@@ -69,7 +69,24 @@
 			"path": "."
 		},
 		{
+			"name": "itertools_combinatorics",
 			"path": "../python/online-tutorials/mcoding/itertools_combinatorics"
+		},
+		{
+			"name": "pytest-fcc",
+			"path": "../python/youtube-courses/pytest-fcc"
+		},
+		{
+			"name": "pytest-pixegami",
+			"path": "../python/youtube-courses/pytest-pixegami"
+		},
+		{
+			"name": "Hands-on-Test-Driven-Development-TDD-using-Python",
+			"path": "../python/youtube-courses/Hands-on-Test-Driven-Development-TDD-using-Python"
+		},
+		{
+			"name": "RexJonesII-PytestTutorials",
+			"path": "../python/youtube-courses/RexJonesII-PytestTutorials"
 		}
 	],
 	"settings": {
