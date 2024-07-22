@@ -87,6 +87,15 @@
 		{
 			"name": "RexJonesII-PytestTutorials",
 			"path": "../python/youtube-courses/RexJonesII-PytestTutorials"
+		},
+		{
+			"path": "../python/youtube-courses/pytest-rest-api-pixegami"
+		},
+		{
+			"path": "../python/youtube-courses/caleb-rest-api"
+		},
+		{
+			"path": "../python/youtube-courses/neuralnine-flask-sqlalchemy"
 		}
 	],
 	"settings": {
