@@ -96,6 +96,9 @@
 		},
 		{
 			"path": "../python/youtube-courses/neuralnine-flask-sqlalchemy"
+		},
+		{
+			"path": "../python/my-projects/epicgames-lib"
 		}
 	],
 	"settings": {
