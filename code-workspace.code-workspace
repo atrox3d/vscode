@@ -99,6 +99,9 @@
 		},
 		{
 			"path": "../python/my-projects/epicgames-lib"
+		},
+		{
+			"path": "../python/online-tutorials/fastapi"
 		}
 	],
 	"settings": {
